@@ -10,20 +10,39 @@ var sprite_direction = "S": get = _get_sprite_direction
 @onready var all_interactions = []
 @onready var interactLabel = $"InteractionComponents/Label"
 @onready var interactArea = $"InteractionComponents/InteractionArea"
+@onready var fishAlert = $"FishingComponents/Alert"
+@onready var fishTimer = $"FishingComponents/FishTimer"
 
 var rng = RandomNumberGenerator.new()
 
+var fishing = false
+var fish_hooked = false
+
 func _physics_process(_delta):
-	velocity = input_direction * SPEED
-	move_and_slide()
+	if !fishing:
+		velocity = input_direction * SPEED
+		move_and_slide()
+		
+		set_animation("Walk")
+		if velocity == Vector2.ZERO:
+			set_animation("Idle")
+	else:
+		if !fish_hooked:
+			if rng.randi_range(0,120) == 0:
+				fish_hooked = true
+				fishAlert.visible = true
+				fishTimer.start()
 	
-	set_animation("Walk")
-	if velocity == Vector2.ZERO:
-		set_animation("Idle")
+	
 	
 	if Input.is_action_just_pressed("interact"):
 		execute_interaction()
 
+
+func fish_missed():
+	fish_hooked = false
+	fishing = false
+	fishAlert.visible = false
 
 func set_animation(animation):
 	var direction = sprite_direction
@@ -74,4 +93,14 @@ func execute_interaction():
 		match current_interaction.interact_type:
 			"print_text": print(current_interaction.interact_value)
 			"fish_area":
-				print(rng.randi_range(0,5))
+				if fishing:
+					if fish_hooked:
+						print("You caught fish")
+						fishing = false
+						fish_hooked = false
+						fishAlert.visible = false
+						fishTimer.stop()
+					else:
+						fishing = false
+				else:
+					fishing = true

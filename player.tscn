@@ -1,4 +1,4 @@
-[gd_scene load_steps=41 format=3 uid="uid://cv2fcay36vca2"]
+[gd_scene load_steps=42 format=3 uid="uid://cv2fcay36vca2"]
 
 [ext_resource type="Texture2D" uid="uid://45r8b3trcqu0" path="res://assets/player/playerIdleA1.png" id="1_ek41f"]
 [ext_resource type="Script" uid="uid://bo0fefl8v6i1k" path="res://player.gd" id="1_khis8"]
@@ -37,6 +37,7 @@
 [ext_resource type="Texture2D" uid="uid://cittiqshxfiay" path="res://assets/player/playerWalkW4.png" id="34_mgmjd"]
 [ext_resource type="Texture2D" uid="uid://cdrn6700as7nd" path="res://assets/player/playerWalkW5.png" id="35_va2xi"]
 [ext_resource type="Texture2D" uid="uid://c0xifnrya6fqj" path="res://assets/player/playerWalkW6.png" id="36_fkf2u"]
+[ext_resource type="Texture2D" uid="uid://dp3v3kbqpbp3y" path="res://assets/alert.png" id="38_b88wv"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_ek41f"]
 animations = [{
@@ -237,5 +238,17 @@ offset_right = 24.0
 offset_bottom = -5.0
 text = "test"
 
+[node name="FishingComponents" type="Node2D" parent="."]
+position = Vector2(-16, -28)
+
+[node name="Alert" type="Sprite2D" parent="FishingComponents"]
+visible = false
+position = Vector2(16, 10)
+texture = ExtResource("38_b88wv")
+
+[node name="FishTimer" type="Timer" parent="FishingComponents"]
+one_shot = true
+
 [connection signal="area_entered" from="InteractionComponents/InteractionArea" to="." method="_on_interaction_area_area_entered"]
 [connection signal="area_exited" from="InteractionComponents/InteractionArea" to="." method="_on_interaction_area_area_exited"]
+[connection signal="timeout" from="FishingComponents/FishTimer" to="." method="fish_missed"]
