@@ -202,7 +202,7 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_khis8"]
-size = Vector2(12, 8.5)
+size = Vector2(12, 9.25)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_b88wv"]
 size = Vector2(14, 15)
@@ -212,10 +212,10 @@ script = ExtResource("1_khis8")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_ek41f")
-animation = &"IdleS"
+animation = &"IdleW"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, 7)
+position = Vector2(0, 7.375)
 shape = SubResource("RectangleShape2D_khis8")
 
 [node name="InteractionComponents" type="Node2D" parent="."]

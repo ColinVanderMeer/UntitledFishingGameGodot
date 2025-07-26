@@ -1,8 +1,10 @@
-[gd_scene load_steps=4 format=4 uid="uid://ciob6efre70ff"]
+[gd_scene load_steps=6 format=4 uid="uid://ciob6efre70ff"]
 
 [ext_resource type="TileSet" uid="uid://5ec7aqryvhob" path="res://Tileset.tres" id="1_ouim0"]
 [ext_resource type="PackedScene" uid="uid://cv2fcay36vca2" path="res://player.tscn" id="2_2rafd"]
 [ext_resource type="PackedScene" uid="uid://c3lalbn7b8x4a" path="res://interact_area.tscn" id="3_v6m0x"]
+[ext_resource type="Script" uid="uid://bosh1ciewx1gk" path="res://interact_area.gd" id="4_q2yj1"]
+[ext_resource type="Texture2D" uid="uid://ibtljuhv4ory" path="res://assets/sign.png" id="5_p7jcx"]
 
 [node name="MainIsland" type="Node2D"]
 
@@ -13,8 +15,24 @@ tile_set = ExtResource("1_ouim0")
 [node name="CharacterBody2D" parent="." instance=ExtResource("2_2rafd")]
 position = Vector2(83.2, 59)
 
-[node name="InteractArea" parent="." instance=ExtResource("3_v6m0x")]
-position = Vector2(124, 70)
+[node name="FishableArea" type="Area2D" parent="."]
+position = Vector2(18, 15)
+collision_layer = 2
+collision_mask = 0
+script = ExtResource("4_q2yj1")
+interact_label = "Fibsh"
+interact_type = "fish_area"
+interact_value = "This is where you would fish"
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="FishableArea"]
+polygon = PackedVector2Array(-18, -15, 142, -15, 142, -8, 36, -9, 32, 5, 19, 10, 18, 91, 34, 96, 35, 108, 41, 110, 142, 111, 142, 113, -18, 113)
+
+[node name="Sign" type="Sprite2D" parent="."]
+position = Vector2(123, 23)
+texture = ExtResource("5_p7jcx")
+
+[node name="InteractArea" parent="Sign" instance=ExtResource("3_v6m0x")]
+collision_layer = 3
 interact_label = "2"
 interact_type = "print_text"
 interact_value = "TETETET"

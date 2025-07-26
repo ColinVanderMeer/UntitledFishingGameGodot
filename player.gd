@@ -9,6 +9,9 @@ var sprite_direction = "S": get = _get_sprite_direction
 
 @onready var all_interactions = []
 @onready var interactLabel = $"InteractionComponents/Label"
+@onready var interactArea = $"InteractionComponents/InteractionArea"
+
+var rng = RandomNumberGenerator.new()
 
 func _physics_process(_delta):
 	velocity = input_direction * SPEED
@@ -38,12 +41,16 @@ func _get_sprite_direction():
 	match input_direction:
 		Vector2.LEFT:
 			sprite_direction = "A"
+			interactArea.rotation_degrees = 90
 		Vector2.RIGHT:
 			sprite_direction = "D"
+			interactArea.rotation_degrees = 270
 		Vector2.UP:
 			sprite_direction = "W"
+			interactArea.rotation_degrees = 180
 		Vector2.DOWN:
 			sprite_direction = "S"
+			interactArea.rotation_degrees = 0
 	return sprite_direction
 
 
@@ -66,3 +73,5 @@ func execute_interaction():
 		var current_interaction = all_interactions[0]
 		match current_interaction.interact_type:
 			"print_text": print(current_interaction.interact_value)
+			"fish_area":
+				print(rng.randi_range(0,5))
