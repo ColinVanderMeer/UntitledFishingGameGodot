@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=4 uid="uid://ciob6efre70ff"]
+[gd_scene load_steps=4 format=4 uid="uid://ciob6efre70ff"]
 
 [ext_resource type="TileSet" uid="uid://5ec7aqryvhob" path="res://Tileset.tres" id="1_ouim0"]
 [ext_resource type="PackedScene" uid="uid://cv2fcay36vca2" path="res://player.tscn" id="2_2rafd"]
+[ext_resource type="PackedScene" uid="uid://c3lalbn7b8x4a" path="res://interact_area.tscn" id="3_v6m0x"]
 
 [node name="MainIsland" type="Node2D"]
 
@@ -11,3 +12,9 @@ tile_set = ExtResource("1_ouim0")
 
 [node name="CharacterBody2D" parent="." instance=ExtResource("2_2rafd")]
 position = Vector2(83.2, 59)
+
+[node name="InteractArea" parent="." instance=ExtResource("3_v6m0x")]
+position = Vector2(124, 70)
+interact_label = "2"
+interact_type = "print_text"
+interact_value = "TETETET"
