@@ -1,4 +1,4 @@
-[gd_scene load_steps=42 format=3 uid="uid://cv2fcay36vca2"]
+[gd_scene load_steps=43 format=3 uid="uid://cv2fcay36vca2"]
 
 [ext_resource type="Texture2D" uid="uid://45r8b3trcqu0" path="res://assets/player/playerIdleA1.png" id="1_ek41f"]
 [ext_resource type="Script" uid="uid://bo0fefl8v6i1k" path="res://player.gd" id="1_khis8"]
@@ -38,6 +38,7 @@
 [ext_resource type="Texture2D" uid="uid://cdrn6700as7nd" path="res://assets/player/playerWalkW5.png" id="35_va2xi"]
 [ext_resource type="Texture2D" uid="uid://c0xifnrya6fqj" path="res://assets/player/playerWalkW6.png" id="36_fkf2u"]
 [ext_resource type="Texture2D" uid="uid://dp3v3kbqpbp3y" path="res://assets/alert.png" id="38_b88wv"]
+[ext_resource type="Theme" uid="uid://cqlcjx0e4f7ox" path="res://new_theme.tres" id="38_pgbbb"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_ek41f"]
 animations = [{
@@ -236,6 +237,7 @@ offset_left = -16.0
 offset_top = -28.0
 offset_right = 24.0
 offset_bottom = -5.0
+theme = ExtResource("38_pgbbb")
 text = "test"
 
 [node name="FishingComponents" type="Node2D" parent="."]

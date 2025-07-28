@@ -1,0 +1,19 @@
+[gd_resource type="Theme" load_steps=3 format=3 uid="uid://cqlcjx0e4f7ox"]
+
+[ext_resource type="FontFile" uid="uid://bcihla8d4amrv" path="res://assets/6x9-Fixed.ttf" id="1_amlv4"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_amlv4"]
+bg_color = Color(0, 0, 0, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[resource]
+default_font = ExtResource("1_amlv4")
+default_font_size = 9
+Panel/styles/panel = SubResource("StyleBoxFlat_amlv4")

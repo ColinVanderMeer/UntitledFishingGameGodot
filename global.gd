@@ -1,1 +1,3 @@
 extends Node
+
+var interact = false # I should add a punch card...
