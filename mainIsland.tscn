@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=4 uid="uid://ciob6efre70ff"]
+[gd_scene load_steps=9 format=4 uid="uid://ciob6efre70ff"]
 
 [ext_resource type="TileSet" uid="uid://5ec7aqryvhob" path="res://Tileset.tres" id="1_ouim0"]
 [ext_resource type="PackedScene" uid="uid://cv2fcay36vca2" path="res://player.tscn" id="2_2rafd"]
@@ -6,16 +6,20 @@
 [ext_resource type="Script" uid="uid://bosh1ciewx1gk" path="res://interact_area.gd" id="4_q2yj1"]
 [ext_resource type="Texture2D" uid="uid://ibtljuhv4ory" path="res://assets/sign.png" id="5_p7jcx"]
 [ext_resource type="Theme" uid="uid://cqlcjx0e4f7ox" path="res://new_theme.tres" id="6_8ehth"]
+[ext_resource type="Script" uid="uid://dl5tqwls5bk8p" path="res://scene_change.gd" id="7_leyo6"]
 
-[node name="MainIsland" type="Node2D"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8ehth"]
+size = Vector2(5, 128)
+
+[node name="MainIsland2" type="Node2D"]
 
 [node name="TileMapLayer" type="TileMapLayer" parent="."]
 tile_map_data = PackedByteArray("AAAAAAAAAAABAAEAAAABAAAAAAABAAEAAAACAAAAAAAAAAUAAAADAAAAAAAAAAMAAAAEAAAAAAABAAIAAAAFAAAAAAABAAIAAAAGAAAAAAABAAIAAAAHAAAAAAABAAIAAAAIAAAAAAABAAIAAAAJAAAAAAABAAIAAAAJAAEAAAACAAQAAAAJAAIAAAACAAMAAAAJAAcAAAABAAAAAAAIAAcAAAABAAAAAAAHAAcAAAABAAAAAAAGAAcAAAABAAAAAAAFAAcAAAABAAAAAAAEAAcAAAABAAAAAAADAAcAAAAAAAQAAAACAAcAAAABAAEAAAABAAcAAAABAAEAAAAAAAcAAAABAAEAAAAAAAYAAAABAAEAAAAAAAUAAAABAAEAAAAAAAQAAAABAAEAAAAAAAMAAAABAAEAAAAAAAIAAAACAAUAAAAAAAEAAAABAAEAAAABAAEAAAABAAEAAAACAAEAAAAAAAMAAAADAAEAAAACAAIAAAAEAAEAAAACAAMAAAAFAAEAAAACAAMAAAAGAAEAAAACAAMAAAAHAAEAAAACAAMAAAAIAAEAAAACAAMAAAAJAAMAAAACAAMAAAAJAAQAAAACAAMAAAAJAAUAAAACAAMAAAAJAAYAAAACAAMAAAAIAAYAAAACAAMAAAAHAAYAAAACAAMAAAAGAAYAAAACAAMAAAAFAAYAAAACAAQAAAAEAAYAAAACAAMAAAADAAYAAAACAAAAAAACAAYAAAAAAAQAAAABAAYAAAAAAAUAAAABAAUAAAABAAEAAAABAAQAAAABAAEAAAABAAMAAAABAAEAAAABAAIAAAABAAEAAAACAAIAAAACAAEAAAADAAIAAAACAAMAAAAEAAIAAAACAAMAAAAFAAIAAAACAAQAAAAGAAIAAAACAAMAAAAHAAIAAAACAAMAAAAIAAIAAAACAAMAAAAIAAMAAAACAAMAAAAIAAQAAAACAAMAAAAHAAUAAAACAAMAAAAGAAUAAAACAAMAAAAFAAUAAAACAAMAAAAIAAUAAAACAAQAAAAEAAUAAAACAAMAAAADAAUAAAACAAMAAAACAAUAAAACAAEAAAACAAQAAAACAAEAAAACAAMAAAACAAEAAAADAAMAAAACAAMAAAAEAAMAAAACAAMAAAAFAAMAAAACAAMAAAAGAAMAAAACAAMAAAAHAAMAAAACAAMAAAAHAAQAAAACAAMAAAAGAAQAAAACAAMAAAAFAAQAAAACAAMAAAAEAAQAAAACAAMAAAADAAQAAAACAAMAAAA=")
 tile_set = ExtResource("1_ouim0")
 metadata/_edit_lock_ = true
 
-[node name="CharacterBody2D" parent="." instance=ExtResource("2_2rafd")]
-position = Vector2(83.2, 59)
+[node name="Player" parent="." instance=ExtResource("2_2rafd")]
+position = Vector2(58, 43)
 
 [node name="FishableArea" type="Area2D" parent="."]
 position = Vector2(18, 15)
@@ -58,3 +62,14 @@ text = "Welcome to Fishing! Use L
 to interact with objects,
 K to close text boxes,
 and I to open the menu."
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_layer = 4
+collision_mask = 0
+script = ExtResource("7_leyo6")
+direction = "East"
+map = "uid://b5onu7132firl"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(165.5, 64)
+shape = SubResource("RectangleShape2D_8ehth")

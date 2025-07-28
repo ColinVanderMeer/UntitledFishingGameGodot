@@ -20,6 +20,12 @@ var rng = RandomNumberGenerator.new()
 var fishing = false
 var fish_hooked = false
 
+func _ready():
+	if Global.player_spawn_position != Vector2.ZERO:
+		self.global_position = Global.player_spawn_position
+		Global.player_spawn_position = Vector2.ZERO  # Clear it afterward
+
+
 func _physics_process(_delta):
 	if !Global.interact:
 		velocity = input_direction * SPEED
@@ -34,8 +40,6 @@ func _physics_process(_delta):
 				fish_hooked = true
 				fishAlert.visible = true
 				fishTimer.start()
-	
-	
 	
 	if Input.is_action_just_pressed("interact"):
 		execute_interaction()
@@ -78,23 +82,40 @@ func _get_sprite_direction():
 
 func _on_interaction_area_area_entered(area):
 	all_interactions.insert(0, area)
-	update_interactions()
+	var current_interaction = all_interactions[0]
+	if current_interaction.interact_type == "scene_change":
+		scene_change(current_interaction)
 
 func _on_interaction_area_area_exited(area):
 	all_interactions.erase(area)
-	update_interactions()
+	#update_interactions()
 	
-func update_interactions():
-	if all_interactions:
-		interactLabel.text = all_interactions[0].interact_label
-	else:
-		interactLabel.text = ""
+#func update_interactions():
+	#if all_interactions:
+		#interactLabel.text = all_interactions[0].interact_label
+	#else:
+		#interactLabel.text = ""
+		
+func scene_change(area):
+	match area.direction:
+		"North":
+			Global.player_spawn_position = Vector2(self.global_position.x, 8)
+		"East":
+			Global.player_spawn_position = Vector2(8, self.global_position.y)
+		"South":
+			Global.player_spawn_position = Vector2(self.global_position.x, 120)
+		"West":
+			Global.player_spawn_position = Vector2(152, self.global_position.y)
+
+	get_tree().change_scene_to_file(area.map)
 
 func execute_interaction():
+	print(self.global_position[0])
 	if all_interactions:
 		var current_interaction = all_interactions[0]
 		match current_interaction.interact_type:
 			"print_text": print(current_interaction.interact_value)
+
 			"text_box":
 				if Global.interact:
 					Global.interact = false
@@ -102,7 +123,7 @@ func execute_interaction():
 				else:
 					textBox.visible = true
 					Global.interact = true
-					
+
 			"fish_area":
 				if Global.interact:
 					if fish_hooked:

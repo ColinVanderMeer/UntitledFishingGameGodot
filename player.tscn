@@ -1,4 +1,4 @@
-[gd_scene load_steps=43 format=3 uid="uid://cv2fcay36vca2"]
+[gd_scene load_steps=44 format=3 uid="uid://cv2fcay36vca2"]
 
 [ext_resource type="Texture2D" uid="uid://45r8b3trcqu0" path="res://assets/player/playerIdleA1.png" id="1_ek41f"]
 [ext_resource type="Script" uid="uid://bo0fefl8v6i1k" path="res://player.gd" id="1_khis8"]
@@ -209,6 +209,9 @@ size = Vector2(12, 9.25)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_b88wv"]
 size = Vector2(14, 15)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_pgbbb"]
+size = Vector2(12, 14)
+
 [node name="Player" type="CharacterBody2D"]
 script = ExtResource("1_khis8")
 
@@ -240,6 +243,15 @@ offset_bottom = -5.0
 theme = ExtResource("38_pgbbb")
 text = "test"
 
+[node name="InteractionArea2" type="Area2D" parent="InteractionComponents"]
+collision_layer = 0
+collision_mask = 4
+monitorable = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="InteractionComponents/InteractionArea2"]
+position = Vector2(0, 5)
+shape = SubResource("RectangleShape2D_pgbbb")
+
 [node name="FishingComponents" type="Node2D" parent="."]
 position = Vector2(-16, -28)
 
@@ -253,4 +265,5 @@ one_shot = true
 
 [connection signal="area_entered" from="InteractionComponents/InteractionArea" to="." method="_on_interaction_area_area_entered"]
 [connection signal="area_exited" from="InteractionComponents/InteractionArea" to="." method="_on_interaction_area_area_exited"]
+[connection signal="area_entered" from="InteractionComponents/InteractionArea2" to="." method="scene_change"]
 [connection signal="timeout" from="FishingComponents/FishTimer" to="." method="fish_missed"]
