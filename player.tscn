@@ -243,12 +243,12 @@ offset_bottom = -5.0
 theme = ExtResource("38_pgbbb")
 text = "test"
 
-[node name="InteractionArea2" type="Area2D" parent="InteractionComponents"]
+[node name="SceneChangeArea" type="Area2D" parent="InteractionComponents"]
 collision_layer = 0
 collision_mask = 4
 monitorable = false
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="InteractionComponents/InteractionArea2"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="InteractionComponents/SceneChangeArea"]
 position = Vector2(0, 5)
 shape = SubResource("RectangleShape2D_pgbbb")
 
@@ -265,5 +265,5 @@ one_shot = true
 
 [connection signal="area_entered" from="InteractionComponents/InteractionArea" to="." method="_on_interaction_area_area_entered"]
 [connection signal="area_exited" from="InteractionComponents/InteractionArea" to="." method="_on_interaction_area_area_exited"]
-[connection signal="area_entered" from="InteractionComponents/InteractionArea2" to="." method="scene_change"]
+[connection signal="area_entered" from="InteractionComponents/SceneChangeArea" to="." method="scene_change"]
 [connection signal="timeout" from="FishingComponents/FishTimer" to="." method="fish_missed"]

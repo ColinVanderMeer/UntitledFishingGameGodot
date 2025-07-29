@@ -107,7 +107,10 @@ func scene_change(area):
 		"West":
 			Global.player_spawn_position = Vector2(152, self.global_position.y)
 
-	get_tree().change_scene_to_file(area.map)
+	call_deferred("_deferred_scene_change", area.map)
+
+func _deferred_scene_change(map_path):
+	get_tree().change_scene_to_file(map_path)
 
 func execute_interaction():
 	print(self.global_position[0])
