@@ -69,7 +69,7 @@ position = Vector2(103, 37)
 collision_layer = 4
 collision_mask = 0
 script = ExtResource("4_b6gqc")
-direction = "East"
+direction = 1
 map = "uid://bjgolrncoxa5f"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Transitions/East"]
@@ -80,7 +80,6 @@ shape = SubResource("RectangleShape2D_keb3o")
 collision_layer = 4
 collision_mask = 0
 script = ExtResource("4_b6gqc")
-direction = "North"
 map = "uid://ccwcmxr1pdh2"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Transitions/North"]
@@ -91,7 +90,7 @@ shape = SubResource("RectangleShape2D_igjjo")
 collision_layer = 4
 collision_mask = 0
 script = ExtResource("4_b6gqc")
-direction = "West"
+direction = 3
 map = "uid://ciob6efre70ff"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Transitions/West"]

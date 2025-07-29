@@ -69,7 +69,7 @@ and I to open the menu."
 collision_layer = 4
 collision_mask = 0
 script = ExtResource("7_leyo6")
-direction = "East"
+direction = 1
 map = "uid://b5onu7132firl"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Transitions/East"]

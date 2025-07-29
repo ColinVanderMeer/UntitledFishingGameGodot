@@ -97,14 +97,15 @@ func _on_interaction_area_area_exited(area):
 		#interactLabel.text = ""
 		
 func scene_change(area):
+	print(area.direction)
 	match area.direction:
-		"North":
+		0: # North
 			Global.player_spawn_position = Vector2(self.global_position.x, 115)
-		"East":
+		1: # East
 			Global.player_spawn_position = Vector2(8, self.global_position.y)
-		"South":
+		2: # South
 			Global.player_spawn_position = Vector2(self.global_position.x, 8)
-		"West":
+		3: # West
 			Global.player_spawn_position = Vector2(152, self.global_position.y)
 
 	call_deferred("_deferred_scene_change", area.map)

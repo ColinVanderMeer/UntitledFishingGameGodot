@@ -57,7 +57,7 @@ position = Vector2(94, 61)
 collision_layer = 4
 collision_mask = 0
 script = ExtResource("4_rcesp")
-direction = "South"
+direction = 2
 map = "uid://b5onu7132firl"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Transitions/SouthTransition"]
