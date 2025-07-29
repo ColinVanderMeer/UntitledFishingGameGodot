@@ -62,7 +62,7 @@ position = Vector2(104, 24)
 texture = ExtResource("5_2rpcb")
 
 [node name="Player" parent="." instance=ExtResource("5_8f1rm")]
-position = Vector2(43, 59)
+position = Vector2(104, 43)
 
 [node name="Transitions" type="Node2D" parent="."]
 
@@ -81,7 +81,9 @@ shape = SubResource("RectangleShape2D_rpar3")
 collision_layer = 4
 collision_mask = 0
 script = ExtResource("4_2jreh")
-map = "uid://b5onu7132firl"
+direction = 4
+map = "uid://dkyi81pt0xq8h"
+custom_coordinates = Vector2(39.1, 114.1)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Transitions/Shop"]
 position = Vector2(104, 27)

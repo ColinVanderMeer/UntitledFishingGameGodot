@@ -107,6 +107,8 @@ func scene_change(area):
 			Global.player_spawn_position = Vector2(self.global_position.x, 8)
 		3: # West
 			Global.player_spawn_position = Vector2(152, self.global_position.y)
+		4:
+			Global.player_spawn_position = area.custom_coordinates
 
 	call_deferred("_deferred_scene_change", area.map)
 
