@@ -99,11 +99,11 @@ func _on_interaction_area_area_exited(area):
 func scene_change(area):
 	match area.direction:
 		"North":
-			Global.player_spawn_position = Vector2(self.global_position.x, 8)
+			Global.player_spawn_position = Vector2(self.global_position.x, 115)
 		"East":
 			Global.player_spawn_position = Vector2(8, self.global_position.y)
 		"South":
-			Global.player_spawn_position = Vector2(self.global_position.x, 120)
+			Global.player_spawn_position = Vector2(self.global_position.x, 8)
 		"West":
 			Global.player_spawn_position = Vector2(152, self.global_position.y)
 
