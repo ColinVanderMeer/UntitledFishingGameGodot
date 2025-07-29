@@ -1,0 +1,65 @@
+[gd_scene load_steps=7 format=4 uid="uid://ccwcmxr1pdh2"]
+
+[ext_resource type="TileSet" uid="uid://5ec7aqryvhob" path="res://Tileset.tres" id="1_gi7p1"]
+[ext_resource type="Script" uid="uid://bosh1ciewx1gk" path="res://interact_area.gd" id="2_hc3dj"]
+[ext_resource type="Theme" uid="uid://cqlcjx0e4f7ox" path="res://new_theme.tres" id="3_xa336"]
+[ext_resource type="Script" uid="uid://dl5tqwls5bk8p" path="res://scene_change.gd" id="4_rcesp"]
+[ext_resource type="PackedScene" uid="uid://cv2fcay36vca2" path="res://player.tscn" id="5_ebhwl"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_u8ds3"]
+size = Vector2(160, 5)
+
+[node name="Node2D" type="Node2D"]
+
+[node name="TileMapLayer" type="TileMapLayer" parent="."]
+tile_map_data = PackedByteArray("AAAGAAcAAQAAAAAAAAAFAAcAAQAAAAAAAAAFAAYAAQAAAAAAAAAFAAUAAQAAAAAAAAAFAAQAAQAAAAAAAAAGAAQAAQAAAAAAAAAGAAUAAQAAAAAAAAAGAAYAAQAAAAAAAAAGAAMAAQAAAAAAAAAFAAMAAQAAAAAAAAAEAAcAAAABAAEAAAAEAAYAAAABAAEAAAAEAAUAAAABAAEAAAAEAAQAAAABAAEAAAAEAAMAAAABAAEAAAAEAAIAAAABAAEAAAAEAAEAAAABAAEAAAAEAAAAAAABAAEAAAADAAAAAAABAAEAAAACAAAAAAABAAEAAAABAAAAAAABAAEAAAAAAAAAAAACAAUAAAAAAAEAAAABAAEAAAABAAEAAAABAAEAAAACAAEAAAABAAEAAAADAAEAAAAAAAUAAAADAAIAAAABAAEAAAACAAIAAAABAAEAAAABAAIAAAABAAUAAAAAAAIAAAABAAEAAAAAAAMAAAABAAEAAAABAAMAAAABAAEAAAACAAMAAAABAAEAAAADAAMAAAABAAEAAAADAAQAAAABAAEAAAACAAQAAAABAAEAAAABAAQAAAABAAEAAAAAAAQAAAABAAEAAAAAAAUAAAABAAEAAAABAAUAAAABAAEAAAACAAUAAAABAAEAAAADAAUAAAABAAEAAAADAAYAAAABAAEAAAACAAYAAAABAAEAAAABAAYAAAAAAAUAAAAAAAYAAAABAAEAAAAAAAcAAAABAAEAAAABAAcAAAABAAEAAAACAAcAAAABAAEAAAADAAcAAAACAAUAAAAJAAAAAAACAAUAAAAJAAEAAAABAAEAAAAJAAIAAAABAAEAAAAJAAMAAAABAAEAAAAJAAQAAAABAAEAAAAJAAUAAAABAAEAAAAJAAYAAAABAAEAAAAJAAcAAAACAAUAAAAIAAcAAAABAAEAAAAHAAcAAAABAAEAAAAHAAYAAAABAAEAAAAHAAUAAAABAAEAAAAIAAUAAAAAAAUAAAAIAAYAAAABAAEAAAAIAAMAAAABAAUAAAAHAAQAAAABAAEAAAAHAAMAAAABAAEAAAAHAAIAAAABAAEAAAAIAAIAAAABAAEAAAAIAAEAAAABAAEAAAAIAAAAAAABAAEAAAAHAAAAAAABAAEAAAAGAAAAAAABAAEAAAAFAAAAAAABAAEAAAAFAAEAAAABAAEAAAAGAAEAAAABAAEAAAAHAAEAAAABAAEAAAAGAAIAAAABAAEAAAAFAAIAAAABAAEAAAAIAAQAAAABAAEAAAA=")
+tile_set = ExtResource("1_gi7p1")
+
+[node name="FishableArea" type="Area2D" parent="."]
+visible = false
+position = Vector2(18, 15)
+collision_layer = 2
+collision_mask = 0
+script = ExtResource("2_hc3dj")
+interact_label = "Fibsh"
+interact_type = "fish_area"
+interact_value = "This is where you would fish"
+
+[node name="CollisionPolygon2D3" type="CollisionPolygon2D" parent="FishableArea"]
+polygon = PackedVector2Array(62, 33, 94, 33, 94, 113, 142, 113, 142, -15, -18, -15, -18, 113, 62, 113)
+
+[node name="TextBox" type="Panel" parent="." groups=["TextBox"]]
+visible = false
+offset_left = 2.0
+offset_top = 82.0
+offset_right = 158.0
+offset_bottom = 126.0
+theme = ExtResource("3_xa336")
+
+[node name="Label" type="Label" parent="TextBox"]
+layout_mode = 0
+offset_left = 3.0
+offset_top = 3.0
+offset_right = 153.0
+offset_bottom = 42.0
+theme_override_constants/line_spacing = 1
+text = "Welcome to Fishing! Use L
+to interact with objects,
+K to close text boxes,
+and I to open the menu."
+
+[node name="Player" parent="." instance=ExtResource("5_ebhwl")]
+position = Vector2(94, 61)
+
+[node name="Transitions" type="Node2D" parent="."]
+
+[node name="SouthTransition" type="Area2D" parent="Transitions"]
+collision_layer = 4
+collision_mask = 0
+script = ExtResource("4_rcesp")
+direction = "South"
+map = "uid://b5onu7132firl"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Transitions/SouthTransition"]
+position = Vector2(80, 133.5)
+shape = SubResource("RectangleShape2D_u8ds3")

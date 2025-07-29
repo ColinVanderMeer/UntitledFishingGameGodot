@@ -1,10 +1,16 @@
-[gd_scene load_steps=7 format=4 uid="uid://b5onu7132firl"]
+[gd_scene load_steps=9 format=4 uid="uid://b5onu7132firl"]
 
-[ext_resource type="TileSet" uid="uid://5ec7aqryvhob" path="res://Tileset.tres" id="1_acie4"]
-[ext_resource type="PackedScene" uid="uid://cv2fcay36vca2" path="res://player.tscn" id="2_keb3o"]
-[ext_resource type="Script" uid="uid://bosh1ciewx1gk" path="res://interact_area.gd" id="3_n1p6i"]
-[ext_resource type="Script" uid="uid://dl5tqwls5bk8p" path="res://scene_change.gd" id="5_igjjo"]
-[ext_resource type="Theme" uid="uid://cqlcjx0e4f7ox" path="res://new_theme.tres" id="6_bhif2"]
+[ext_resource type="TileSet" uid="uid://5ec7aqryvhob" path="res://Tileset.tres" id="1_q56i4"]
+[ext_resource type="Script" uid="uid://bosh1ciewx1gk" path="res://interact_area.gd" id="2_32qwe"]
+[ext_resource type="Theme" uid="uid://cqlcjx0e4f7ox" path="res://new_theme.tres" id="3_e2qmw"]
+[ext_resource type="Script" uid="uid://dl5tqwls5bk8p" path="res://scene_change.gd" id="4_b6gqc"]
+[ext_resource type="PackedScene" uid="uid://cv2fcay36vca2" path="res://player.tscn" id="5_gg0v1"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_keb3o"]
+size = Vector2(5, 128)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_igjjo"]
+size = Vector2(160, 5)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_acie4"]
 size = Vector2(5, 128)
@@ -12,26 +18,27 @@ size = Vector2(5, 128)
 [node name="MainIsland" type="Node2D"]
 
 [node name="TileMapLayer" type="TileMapLayer" parent="."]
-tile_map_data = PackedByteArray("AAAAAAAAAAABAAIAAAAAAAEAAAACAAQAAAAAAAIAAAACAAMAAAAAAAMAAAACAAMAAAAAAAQAAAACAAMAAAAAAAUAAAACAAQAAAAAAAYAAAACAAMAAAAAAAcAAAABAAAAAAABAAcAAAABAAAAAAABAAYAAAACAAMAAAABAAUAAAACAAMAAAABAAQAAAACAAMAAAABAAMAAAACAAMAAAABAAIAAAACAAMAAAABAAEAAAACAAMAAAABAAAAAAABAAIAAAACAAAAAAABAAMAAAACAAEAAAAAAAIAAAACAAIAAAACAAMAAAACAAMAAAACAAMAAAACAAQAAAACAAQAAAACAAUAAAAAAAAAAAACAAYAAAAAAAEAAAACAAcAAAABAAQAAAADAAEAAAABAAIAAAADAAIAAAACAAQAAAADAAMAAAACAAMAAAADAAQAAAAAAAAAAAADAAUAAAABAAQAAAAEAAQAAAABAAQAAAAEAAMAAAAAAAAAAAAEAAIAAAACAAMAAAAEAAEAAAABAAIAAAAFAAEAAAACAAIAAAAGAAEAAAAAAAIAAAAHAAEAAAABAAIAAAAIAAEAAAABAAIAAAAIAAIAAAACAAQAAAAHAAIAAAACAAMAAAAGAAIAAAACAAMAAAAFAAIAAAACAAMAAAAFAAMAAAABAAAAAAAGAAMAAAABAAAAAAAHAAMAAAABAAAAAAAIAAMAAAABAAAAAAAGAAAAAAAAAAEAAAAFAAAAAAACAAEAAAAJAAEAAAABAAIAAAAJAAIAAAACAAMAAAAJAAMAAAABAAAAAAAFAAQAAAABAAEAAAAGAAQAAAABAAEAAAAHAAQAAAABAAEAAAAIAAQAAAABAAEAAAAJAAQAAAABAAEAAAAJAAUAAAABAAEAAAAJAAYAAAABAAEAAAAJAAcAAAABAAEAAAAIAAcAAAABAAEAAAAHAAcAAAABAAEAAAAGAAcAAAABAAEAAAAFAAcAAAABAAEAAAAEAAcAAAAAAAUAAAADAAcAAAABAAEAAAADAAYAAAABAAEAAAAEAAYAAAABAAEAAAAFAAYAAAABAAEAAAAGAAYAAAABAAEAAAAHAAYAAAABAAEAAAAIAAYAAAACAAUAAAAIAAUAAAABAAEAAAAHAAUAAAABAAEAAAAGAAUAAAABAAUAAAAFAAUAAAABAAEAAAAEAAUAAAABAAEAAAADAAAAAAABAAUAAAAEAAAAAAABAAEAAAAHAAAAAAABAAEAAAAIAAAAAAAAAAUAAAAJAAAAAAABAAEAAAA=")
-tile_set = ExtResource("1_acie4")
+tile_map_data = PackedByteArray("AAAAAAAAAAABAAIAAAAAAAEAAAACAAQAAAAAAAIAAAACAAMAAAAAAAMAAAACAAMAAAAAAAQAAAACAAMAAAAAAAUAAAACAAQAAAAAAAYAAAACAAMAAAAAAAcAAAABAAAAAAABAAcAAAABAAAAAAABAAYAAAACAAMAAAABAAUAAAACAAMAAAABAAQAAAACAAMAAAABAAMAAAACAAMAAAABAAIAAAACAAMAAAABAAEAAAACAAMAAAABAAAAAAABAAIAAAACAAAAAAABAAMAAAACAAEAAAAAAAEAAAACAAIAAAAAAAIAAAACAAMAAAACAAMAAAACAAQAAAACAAQAAAACAAUAAAACAAMAAAACAAYAAAAAAAAAAAACAAcAAAABAAQAAAADAAIAAAABAAIAAAADAAMAAAACAAMAAAADAAQAAAACAAMAAAADAAUAAAAAAAAAAAAEAAQAAAAAAAAAAAAEAAMAAAACAAMAAAAEAAIAAAABAAIAAAAIAAIAAAABAAIAAAAHAAIAAAABAAIAAAAGAAIAAQAAAAAAAAAFAAIAAQAAAAAAAAAFAAMAAAACAAMAAAAGAAMAAAACAAQAAAAHAAMAAAACAAMAAAAIAAMAAAACAAMAAAAGAAAAAQAAAAAAAAAFAAAAAQAAAAAAAAAJAAIAAAABAAIAAAAJAAMAAAACAAQAAAAFAAQAAAABAAAAAAAGAAQAAAABAAAAAAAHAAQAAAABAAAAAAAIAAQAAAABAAAAAAAJAAQAAAABAAAAAAAJAAUAAAABAAEAAAAJAAYAAAABAAEAAAAJAAcAAAABAAEAAAAIAAcAAAABAAEAAAAHAAcAAAABAAEAAAAGAAcAAAABAAEAAAAFAAcAAAABAAEAAAAEAAcAAAAAAAUAAAADAAcAAAABAAEAAAADAAYAAAABAAQAAAAEAAYAAAABAAEAAAAFAAYAAAABAAEAAAAGAAYAAAABAAEAAAAHAAYAAAABAAEAAAAIAAYAAAACAAUAAAAIAAUAAAABAAEAAAAHAAUAAAABAAEAAAAGAAUAAAABAAUAAAAFAAUAAAABAAEAAAAEAAUAAAABAAQAAAADAAAAAAABAAUAAAAEAAAAAAABAAEAAAAHAAAAAAABAAEAAAAIAAAAAAABAAEAAAAJAAAAAAABAAEAAAAFAAEAAQAAAAAAAAAGAAEAAQAAAAAAAAADAAEAAAABAAEAAAAEAAEAAAABAAEAAAAHAAEAAAABAAEAAAAIAAEAAAAAAAUAAAAJAAEAAAABAAEAAAA=")
+tile_set = ExtResource("1_q56i4")
 
 [node name="FishableArea" type="Area2D" parent="."]
 position = Vector2(18, 15)
 collision_layer = 2
 collision_mask = 0
-script = ExtResource("3_n1p6i")
+script = ExtResource("2_32qwe")
 interact_label = "Fibsh"
 interact_type = "fish_area"
 interact_value = "This is where you would fish"
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="FishableArea"]
-polygon = PackedVector2Array(142, -15, 142, 7, 90, 7, 90, -15)
+polygon = PackedVector2Array(142, -15, 142, 23, 94, 23, 94, -15)
 
 [node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="FishableArea"]
-polygon = PackedVector2Array(65, -15, 65, 6, 27, 6, 24, -8, -18, -8, -18, -15)
+polygon = PackedVector2Array(62, -15, 62, 24, 28, 21, 24, -8, -18, -8, -18, -15)
 
 [node name="CollisionPolygon2D3" type="CollisionPolygon2D" parent="FishableArea"]
-polygon = PackedVector2Array(142, 47, 58, 47, 57, 62, 42, 64, 40, 78, 27, 80, 26, 110, -18, 110, -18, 113, 142, 113)
+position = Vector2(0, 16)
+polygon = PackedVector2Array(142, 47, 58, 47, 57, 62, 42, 64, 40, 78, 27, 80, 26, 95, -18, 95, -18, 97, 142, 97)
 
 [node name="TextBox" type="Panel" parent="." groups=["TextBox"]]
 visible = false
@@ -39,7 +46,7 @@ offset_left = 2.0
 offset_top = 82.0
 offset_right = 158.0
 offset_bottom = 126.0
-theme = ExtResource("6_bhif2")
+theme = ExtResource("3_e2qmw")
 
 [node name="Label" type="Label" parent="TextBox"]
 layout_mode = 0
@@ -53,16 +60,40 @@ to interact with objects,
 K to close text boxes,
 and I to open the menu."
 
-[node name="Area2D" type="Area2D" parent="."]
+[node name="Player" parent="." instance=ExtResource("5_gg0v1")]
+position = Vector2(103, 37)
+
+[node name="Transitions" type="Node2D" parent="."]
+
+[node name="East" type="Area2D" parent="Transitions"]
 collision_layer = 4
 collision_mask = 0
-script = ExtResource("5_igjjo")
+script = ExtResource("4_b6gqc")
+direction = "East"
+map = "uid://bjgolrncoxa5f"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Transitions/East"]
+position = Vector2(165.5, 64)
+shape = SubResource("RectangleShape2D_keb3o")
+
+[node name="North" type="Area2D" parent="Transitions"]
+collision_layer = 4
+collision_mask = 0
+script = ExtResource("4_b6gqc")
+direction = "North"
+map = "uid://ccwcmxr1pdh2"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Transitions/North"]
+position = Vector2(80, -5.5)
+shape = SubResource("RectangleShape2D_igjjo")
+
+[node name="West" type="Area2D" parent="Transitions"]
+collision_layer = 4
+collision_mask = 0
+script = ExtResource("4_b6gqc")
 direction = "West"
 map = "uid://ciob6efre70ff"
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Transitions/West"]
 position = Vector2(-5.5, 64)
 shape = SubResource("RectangleShape2D_acie4")
-
-[node name="Player" parent="." instance=ExtResource("2_keb3o")]
-position = Vector2(103, 37)

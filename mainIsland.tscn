@@ -63,13 +63,15 @@ to interact with objects,
 K to close text boxes,
 and I to open the menu."
 
-[node name="Area2D" type="Area2D" parent="."]
+[node name="Transitions" type="Node2D" parent="."]
+
+[node name="East" type="Area2D" parent="Transitions"]
 collision_layer = 4
 collision_mask = 0
 script = ExtResource("7_leyo6")
 direction = "East"
 map = "uid://b5onu7132firl"
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Transitions/East"]
 position = Vector2(165.5, 64)
 shape = SubResource("RectangleShape2D_8ehth")
