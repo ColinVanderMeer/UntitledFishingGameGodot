@@ -151,6 +151,11 @@ texture = ExtResource("1_gj48w")
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_bnoas"]
 texture = ExtResource("2_kco6d")
 0:0/0 = 0
+1:0/0 = 0
+0:1/0 = 0
+1:1/0 = 0
+0:2/0 = 0
+1:2/0 = 0
 
 [resource]
 physics_layer_0/collision_layer = 1
