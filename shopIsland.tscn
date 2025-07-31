@@ -46,7 +46,6 @@ offset_left = 3.0
 offset_top = 3.0
 offset_right = 153.0
 offset_bottom = 42.0
-theme_override_constants/line_spacing = 1
 text = "Welcome to Fishing! Use L
 to interact with objects,
 K to close text boxes,

@@ -16,4 +16,5 @@ corner_radius_bottom_left = 5
 [resource]
 default_font = ExtResource("1_amlv4")
 default_font_size = 9
+Label/constants/line_spacing = 1
 Panel/styles/panel = SubResource("StyleBoxFlat_amlv4")
