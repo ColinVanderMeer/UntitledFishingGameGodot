@@ -41,7 +41,7 @@ texture = ExtResource("5_p7jcx")
 collision_layer = 3
 interact_label = "2"
 interact_type = "text_box"
-interact_value = "TETETET"
+interact_value = "Welcome to Fishing! Use Lto interact with objects, K to close text boxes, and I to open the menu."
 
 [node name="TextBox" type="Panel" parent="." groups=["TextBox"]]
 visible = false
@@ -58,10 +58,7 @@ offset_top = 3.0
 offset_right = 153.0
 offset_bottom = 42.0
 theme_override_constants/line_spacing = 1
-text = "Welcome to Fishing! Use L
-to interact with objects,
-K to close text boxes,
-and I to open the menu."
+autowrap_mode = 1
 
 [node name="Transitions" type="Node2D" parent="."]
 

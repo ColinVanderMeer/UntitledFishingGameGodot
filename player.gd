@@ -14,6 +14,8 @@ var sprite_direction = "S": get = _get_sprite_direction
 @onready var fishTimer = $"FishingComponents/FishTimer"
 
 @onready var textBox = get_tree().get_nodes_in_group("TextBox")[0]
+@onready var textBoxLabel = textBox.get_node("Label")
+
 
 var rng = RandomNumberGenerator.new()
 
@@ -127,6 +129,7 @@ func execute_interaction():
 					Global.interact = false
 					textBox.visible = false
 				else:
+					textBoxLabel.text = current_interaction.interact_value
 					textBox.visible = true
 					Global.interact = true
 
