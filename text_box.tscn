@@ -1,0 +1,23 @@
+[gd_scene load_steps=2 format=3 uid="uid://bdxlsixuf0tg"]
+
+[ext_resource type="Theme" uid="uid://cqlcjx0e4f7ox" path="res://new_theme.tres" id="1_k7ve7"]
+
+[node name="TextBox" type="Panel" groups=["TextBox"]]
+visible = false
+offset_left = 2.0
+offset_top = 82.0
+offset_right = 158.0
+offset_bottom = 126.0
+theme = ExtResource("1_k7ve7")
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_left = 3.0
+offset_top = 3.0
+offset_right = 153.0
+offset_bottom = 42.0
+text = "Welcome to Fishing! Use L
+to interact with objects,
+K to close text boxes,
+and I to open the menu."
+autowrap_mode = 1

@@ -5,7 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://c3lalbn7b8x4a" path="res://interact_area.tscn" id="3_v6m0x"]
 [ext_resource type="Script" uid="uid://bosh1ciewx1gk" path="res://interact_area.gd" id="4_q2yj1"]
 [ext_resource type="Texture2D" uid="uid://ibtljuhv4ory" path="res://assets/sign.png" id="5_p7jcx"]
-[ext_resource type="Theme" uid="uid://cqlcjx0e4f7ox" path="res://new_theme.tres" id="6_8ehth"]
+[ext_resource type="PackedScene" uid="uid://bdxlsixuf0tg" path="res://text_box.tscn" id="7_gmo30"]
 [ext_resource type="Script" uid="uid://dl5tqwls5bk8p" path="res://scene_change.gd" id="7_leyo6"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8ehth"]
@@ -17,9 +17,6 @@ size = Vector2(5, 128)
 tile_map_data = PackedByteArray("AAAAAAAAAAABAAEAAAABAAAAAAABAAEAAAACAAAAAAAAAAUAAAADAAAAAAAAAAMAAAAEAAAAAAABAAIAAAAFAAAAAAABAAIAAAAGAAAAAAABAAIAAAAHAAAAAAABAAIAAAAIAAAAAAABAAIAAAAJAAAAAAABAAIAAAAJAAEAAAACAAQAAAAJAAIAAAACAAMAAAAJAAcAAAABAAAAAAAIAAcAAAABAAAAAAAHAAcAAAABAAAAAAAGAAcAAAABAAAAAAAFAAcAAAABAAAAAAAEAAcAAAABAAAAAAADAAcAAAAAAAQAAAACAAcAAAABAAEAAAABAAcAAAABAAEAAAAAAAcAAAABAAEAAAAAAAYAAAABAAEAAAAAAAUAAAABAAEAAAAAAAQAAAABAAEAAAAAAAMAAAABAAEAAAAAAAIAAAACAAUAAAAAAAEAAAABAAEAAAABAAEAAAABAAEAAAACAAEAAAAAAAMAAAADAAEAAAACAAIAAAAEAAEAAAACAAMAAAAFAAEAAAACAAMAAAAGAAEAAAACAAMAAAAHAAEAAAACAAMAAAAIAAEAAAACAAMAAAAJAAMAAAACAAMAAAAJAAQAAAACAAMAAAAJAAUAAAACAAMAAAAJAAYAAAACAAMAAAAIAAYAAAACAAMAAAAHAAYAAAACAAMAAAAGAAYAAAACAAMAAAAFAAYAAAACAAQAAAAEAAYAAAACAAMAAAADAAYAAAACAAAAAAACAAYAAAAAAAQAAAABAAYAAAAAAAUAAAABAAUAAAABAAEAAAABAAQAAAABAAEAAAABAAMAAAABAAEAAAABAAIAAAABAAEAAAACAAIAAAACAAEAAAADAAIAAAACAAMAAAAEAAIAAAACAAMAAAAFAAIAAAACAAQAAAAGAAIAAAACAAMAAAAHAAIAAAACAAMAAAAIAAIAAAACAAMAAAAIAAMAAAACAAMAAAAIAAQAAAACAAMAAAAHAAUAAAACAAMAAAAGAAUAAAACAAMAAAAFAAUAAAACAAMAAAAIAAUAAAACAAQAAAAEAAUAAAACAAMAAAADAAUAAAACAAMAAAACAAUAAAACAAEAAAACAAQAAAACAAEAAAACAAMAAAACAAEAAAADAAMAAAACAAMAAAAEAAMAAAACAAMAAAAFAAMAAAACAAMAAAAGAAMAAAACAAMAAAAHAAMAAAACAAMAAAAHAAQAAAACAAMAAAAGAAQAAAACAAMAAAAFAAQAAAACAAMAAAAEAAQAAAACAAMAAAADAAQAAAACAAMAAAA=")
 tile_set = ExtResource("1_ouim0")
 metadata/_edit_lock_ = true
-
-[node name="Player" parent="." instance=ExtResource("2_2rafd")]
-position = Vector2(58, 43)
 
 [node name="FishableArea" type="Area2D" parent="."]
 position = Vector2(18, 15)
@@ -33,32 +30,6 @@ interact_value = "This is where you would fish"
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="FishableArea"]
 polygon = PackedVector2Array(-18, -15, 142, -15, 142, -8, 36, -9, 32, 5, 19, 10, 18, 91, 34, 96, 35, 108, 41, 110, 142, 111, 142, 113, -18, 113)
 
-[node name="Sign" type="Sprite2D" parent="."]
-position = Vector2(123, 23)
-texture = ExtResource("5_p7jcx")
-
-[node name="InteractArea" parent="Sign" instance=ExtResource("3_v6m0x")]
-collision_layer = 3
-interact_label = "2"
-interact_type = "text_box"
-interact_value = "Welcome to Fishing! Use Lto interact with objects, K to close text boxes, and I to open the menu."
-
-[node name="TextBox" type="Panel" parent="." groups=["TextBox"]]
-visible = false
-offset_left = 2.0
-offset_top = 82.0
-offset_right = 158.0
-offset_bottom = 126.0
-theme = ExtResource("6_8ehth")
-
-[node name="Label" type="Label" parent="TextBox"]
-layout_mode = 0
-offset_left = 3.0
-offset_top = 3.0
-offset_right = 153.0
-offset_bottom = 42.0
-autowrap_mode = 1
-
 [node name="Transitions" type="Node2D" parent="."]
 
 [node name="East" type="Area2D" parent="Transitions"]
@@ -71,3 +42,21 @@ map = "uid://b5onu7132firl"
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Transitions/East"]
 position = Vector2(165.5, 64)
 shape = SubResource("RectangleShape2D_8ehth")
+
+[node name="Entities" type="Node2D" parent="."]
+position = Vector2(5, 85)
+
+[node name="Sign" type="Sprite2D" parent="Entities"]
+position = Vector2(118, -62)
+texture = ExtResource("5_p7jcx")
+
+[node name="InteractArea" parent="Entities/Sign" instance=ExtResource("3_v6m0x")]
+collision_layer = 3
+interact_label = "2"
+interact_type = "text_box"
+interact_value = "Welcome to Fishing! Use Lto interact with objects, K to close text boxes, and I to open the menu."
+
+[node name="Player" parent="." instance=ExtResource("2_2rafd")]
+position = Vector2(58, 43)
+
+[node name="TextBox" parent="." instance=ExtResource("7_gmo30")]
