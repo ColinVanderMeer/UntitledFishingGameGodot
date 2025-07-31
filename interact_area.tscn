@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://bosh1ciewx1gk" path="res://interact_area.gd" id="1_ix586"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1ecfl"]
+size = Vector2(16, 32)
 
 [node name="InteractArea" type="Area2D"]
 collision_layer = 2

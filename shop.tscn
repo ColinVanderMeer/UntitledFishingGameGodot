@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://dkyi81pt0xq8h"]
+[gd_scene load_steps=13 format=3 uid="uid://dkyi81pt0xq8h"]
 
 [ext_resource type="TileSet" uid="uid://5ec7aqryvhob" path="res://Tileset.tres" id="1_fgaav"]
 [ext_resource type="Theme" uid="uid://cqlcjx0e4f7ox" path="res://new_theme.tres" id="2_6lah5"]
@@ -6,7 +6,9 @@
 [ext_resource type="Script" uid="uid://dl5tqwls5bk8p" path="res://scene_change.gd" id="4_8kdgp"]
 [ext_resource type="Texture2D" uid="uid://o4ua42msu3ew" path="res://assets/fishtank.png" id="5_gmb2m"]
 [ext_resource type="Texture2D" uid="uid://desx6lkavlq0" path="res://assets/FishFrame.png" id="6_8kdgp"]
+[ext_resource type="Script" uid="uid://b8hflqyw0dblf" path="res://fish_display.gd" id="6_myf4l"]
 [ext_resource type="Texture2D" uid="uid://dw53nbpaxlfhq" path="res://assets/Fish/Clown.png" id="7_8kdgp"]
+[ext_resource type="Script" uid="uid://bosh1ciewx1gk" path="res://interact_area.gd" id="8_p5a0g"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_myf4l"]
 size = Vector2(20, 4)
@@ -14,30 +16,13 @@ size = Vector2(20, 4)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_fgaav"]
 size = Vector2(20, 4)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1ecfl"]
+size = Vector2(16, 32)
+
 [node name="Node2D" type="Node2D"]
 
 [node name="TileMapLayer" type="TileMapLayer" parent="."]
 tile_set = ExtResource("1_fgaav")
-
-[node name="TextBox" type="Panel" parent="." groups=["TextBox"]]
-visible = false
-offset_left = 2.0
-offset_top = 82.0
-offset_right = 158.0
-offset_bottom = 126.0
-theme = ExtResource("2_6lah5")
-
-[node name="Label" type="Label" parent="TextBox"]
-layout_mode = 0
-offset_left = 3.0
-offset_top = 3.0
-offset_right = 153.0
-offset_bottom = 42.0
-theme_override_constants/line_spacing = 1
-text = "Welcome to Fishing! Use L
-to interact with objects,
-K to close text boxes,
-and I to open the menu."
 
 [node name="Player" parent="." instance=ExtResource("3_gmb2m")]
 position = Vector2(98, 107)
@@ -70,30 +55,87 @@ shape = SubResource("RectangleShape2D_fgaav")
 
 [node name="Entities" type="Node2D" parent="."]
 
-[node name="FishTank" type="Sprite2D" parent="Entities"]
+[node name="FishDisplay1" type="Area2D" parent="Entities"]
+position = Vector2(48, 8)
+collision_layer = 2
+collision_mask = 0
+monitoring = false
+script = ExtResource("6_myf4l")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Entities/FishDisplay1"]
+shape = SubResource("RectangleShape2D_1ecfl")
+
+[node name="Frame" type="Sprite2D" parent="Entities/FishDisplay1"]
+texture = ExtResource("6_8kdgp")
+
+[node name="Fish" type="Sprite2D" parent="Entities/FishDisplay1/Frame"]
+texture = ExtResource("7_8kdgp")
+
+[node name="FishDisplay2" type="Area2D" parent="Entities"]
+position = Vector2(80, 8)
+collision_layer = 2
+collision_mask = 0
+monitoring = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Entities/FishDisplay2"]
+shape = SubResource("RectangleShape2D_1ecfl")
+
+[node name="Frame" type="Sprite2D" parent="Entities/FishDisplay2"]
+texture = ExtResource("6_8kdgp")
+
+[node name="Fish" type="Sprite2D" parent="Entities/FishDisplay2/Frame"]
+texture = ExtResource("7_8kdgp")
+
+[node name="FishDisplay3" type="Area2D" parent="Entities"]
+position = Vector2(112, 8)
+collision_layer = 2
+collision_mask = 0
+monitoring = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Entities/FishDisplay3"]
+shape = SubResource("RectangleShape2D_1ecfl")
+
+[node name="Frame" type="Sprite2D" parent="Entities/FishDisplay3"]
+texture = ExtResource("6_8kdgp")
+
+[node name="Fish" type="Sprite2D" parent="Entities/FishDisplay3/Frame"]
+texture = ExtResource("7_8kdgp")
+
+[node name="FishTank" type="Area2D" parent="Entities"]
 position = Vector2(8, 83)
+collision_layer = 2
+collision_mask = 0
+monitoring = false
+script = ExtResource("8_p5a0g")
+interact_type = "text_box"
+interact_value = "Look at all those fishies
+You've caught <num> fishes so far"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Entities/FishTank"]
+shape = SubResource("RectangleShape2D_1ecfl")
+
+[node name="Tank" type="Sprite2D" parent="Entities/FishTank"]
 texture = ExtResource("5_gmb2m")
 
-[node name="FishDisplay1" type="Sprite2D" parent="Entities"]
-position = Vector2(48, 8)
-texture = ExtResource("6_8kdgp")
+[node name="TextBox" type="Panel" parent="." groups=["TextBox"]]
+visible = false
+offset_left = 2.0
+offset_top = 82.0
+offset_right = 158.0
+offset_bottom = 126.0
+theme = ExtResource("2_6lah5")
 
-[node name="Fish" type="Sprite2D" parent="Entities/FishDisplay1"]
-texture = ExtResource("7_8kdgp")
-
-[node name="FishDisplay2" type="Sprite2D" parent="Entities"]
-position = Vector2(80, 8)
-texture = ExtResource("6_8kdgp")
-
-[node name="Fish" type="Sprite2D" parent="Entities/FishDisplay2"]
-texture = ExtResource("7_8kdgp")
-
-[node name="FishDisplay3" type="Sprite2D" parent="Entities"]
-position = Vector2(112, 8)
-texture = ExtResource("6_8kdgp")
-
-[node name="Fish" type="Sprite2D" parent="Entities/FishDisplay3"]
-texture = ExtResource("7_8kdgp")
+[node name="Label" type="Label" parent="TextBox"]
+layout_mode = 0
+offset_left = 3.0
+offset_top = 3.0
+offset_right = 153.0
+offset_bottom = 42.0
+text = "Welcome to Fishing! Use L
+to interact with objects,
+K to close text boxes,
+and I to open the menu."
+autowrap_mode = 1
 
 [node name="Greyboxing" type="Control" parent="."]
 layout_mode = 3
@@ -165,3 +207,31 @@ layout_mode = 0
 offset_left = 40.0
 offset_right = 56.0
 offset_bottom = 16.0
+
+[node name="Fish List" type="Label" parent="Greyboxing"]
+offset_left = 15.0
+offset_top = 17.0
+offset_right = 95.0
+offset_bottom = 40.0
+theme = ExtResource("2_6lah5")
+text = "List of fish: 15
+Common:
+X Clown
+- Cod
+- Salmon
+- PufferFish
+- Tuna
+- Sea Bass
+- Catfish
+
+Rare:
+- Pig fish (bluebell)
+- Singing Fish (hatsune miku)
+- Machine Fish (v1 ultrakill)
+- Drimp (cruelty squad)
+- Shark (Blahaj)
+
+Hack Rare:
+- Orpheus
+X at_fish
+X Magical Frog"
