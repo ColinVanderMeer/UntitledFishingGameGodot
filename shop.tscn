@@ -1,7 +1,6 @@
-[gd_scene load_steps=22 format=4 uid="uid://dkyi81pt0xq8h"]
+[gd_scene load_steps=21 format=4 uid="uid://dkyi81pt0xq8h"]
 
 [ext_resource type="TileSet" uid="uid://5ec7aqryvhob" path="res://Tileset.tres" id="1_fgaav"]
-[ext_resource type="Theme" uid="uid://cqlcjx0e4f7ox" path="res://new_theme.tres" id="2_6lah5"]
 [ext_resource type="PackedScene" uid="uid://cv2fcay36vca2" path="res://player.tscn" id="3_gmb2m"]
 [ext_resource type="Script" uid="uid://dl5tqwls5bk8p" path="res://scene_change.gd" id="4_8kdgp"]
 [ext_resource type="Texture2D" uid="uid://o4ua42msu3ew" path="res://assets/fishtank.png" id="5_gmb2m"]
@@ -187,54 +186,3 @@ shape = SubResource("RectangleShape2D_763b7")
 position = Vector2(98, 107)
 
 [node name="TextBox" parent="." instance=ExtResource("9_xqmyw")]
-
-[node name="Greyboxing" type="Control" parent="."]
-layout_mode = 3
-anchors_preset = 0
-offset_right = 3.0
-offset_bottom = 3.0
-
-[node name="TopWall" type="Panel" parent="Greyboxing"]
-layout_mode = 0
-offset_right = 159.0
-offset_bottom = 16.0
-
-[node name="PC" type="Panel" parent="Greyboxing"]
-layout_mode = 0
-offset_left = 144.0
-offset_right = 160.0
-offset_bottom = 16.0
-
-[node name="Bathroom Door" type="Panel" parent="Greyboxing"]
-layout_mode = 0
-offset_right = 16.0
-offset_bottom = 16.0
-
-[node name="Fish List" type="Label" parent="Greyboxing"]
-layout_mode = 0
-offset_left = 15.0
-offset_top = 17.0
-offset_right = 95.0
-offset_bottom = 40.0
-theme = ExtResource("2_6lah5")
-text = "List of fish: 15
-Common:
-X Clown
-X Cod
-X Salmon
-X PufferFish
-X Tuna
-X Sea Bass
-X Catfish
-
-Rare:
-X Pig fish (bluebell)
-X Singing Fish (hatsune miku)
-X Machine Fish (v1 ultrakill)
-X Drimp (cruelty squad)
-X Shark (Blahaj)
-
-Hack Rare:
-X Orpheus
-X at_fish
-X Magical Frog"
