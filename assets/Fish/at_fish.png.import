@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dn0ee0jmadqx7"
-path="res://.godot/imported/Frog.png-d5d3e714b397ccdfbf6c2db44d440f2e.ctex"
+uid="uid://bnlph0w61wsrr"
+path="res://.godot/imported/at_fish.png-cca269b2a87c47174c73a9c89834f1b8.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/Fish/Frog.png"
-dest_files=["res://.godot/imported/Frog.png-d5d3e714b397ccdfbf6c2db44d440f2e.ctex"]
+source_file="res://assets/Fish/at_fish.png"
+dest_files=["res://.godot/imported/at_fish.png-cca269b2a87c47174c73a9c89834f1b8.ctex"]
 
 [params]
 

@@ -8,7 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://desx6lkavlq0" path="res://assets/FishFrame.png" id="6_8kdgp"]
 [ext_resource type="Script" uid="uid://bcdlhtbmrvus7" path="res://fish_tank.gd" id="6_msgp6"]
 [ext_resource type="Script" uid="uid://b8hflqyw0dblf" path="res://fish_display.gd" id="6_myf4l"]
-[ext_resource type="Texture2D" uid="uid://dw53nbpaxlfhq" path="res://assets/Fish/Clown.png" id="7_8kdgp"]
+[ext_resource type="Texture2D" uid="uid://dw53nbpaxlfhq" path="res://assets/Fish/clown.png" id="7_8kdgp"]
 [ext_resource type="Script" uid="uid://bosh1ciewx1gk" path="res://interact_area.gd" id="8_p5a0g"]
 [ext_resource type="Texture2D" uid="uid://d0heyxpnc50l6" path="res://assets/shopCounter.png" id="8_sw5c6"]
 [ext_resource type="PackedScene" uid="uid://bdxlsixuf0tg" path="res://text_box.tscn" id="9_xqmyw"]
@@ -189,7 +189,6 @@ position = Vector2(98, 107)
 [node name="TextBox" parent="." instance=ExtResource("9_xqmyw")]
 
 [node name="Greyboxing" type="Control" parent="."]
-visible = false
 layout_mode = 3
 anchors_preset = 0
 offset_right = 3.0
@@ -221,12 +220,12 @@ theme = ExtResource("2_6lah5")
 text = "List of fish: 15
 Common:
 X Clown
-- Cod
-- Salmon
-- PufferFish
-- Tuna
-- Sea Bass
-- Catfish
+X Cod
+X Salmon
+X PufferFish
+X Tuna
+X Sea Bass
+X Catfish
 
 Rare:
 X Pig fish (bluebell)

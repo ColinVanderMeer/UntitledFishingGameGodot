@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bnlph0w61wsrr"
-path="res://.godot/imported/atFish.png-2afb4d68183646621548fc542072e159.ctex"
+uid="uid://dn0ee0jmadqx7"
+path="res://.godot/imported/magical_frog.png-1e1246ff9dc45944f19b7a097258fb22.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/Fish/atFish.png"
-dest_files=["res://.godot/imported/atFish.png-2afb4d68183646621548fc542072e159.ctex"]
+source_file="res://assets/Fish/magical_frog.png"
+dest_files=["res://.godot/imported/magical_frog.png-1e1246ff9dc45944f19b7a097258fb22.ctex"]
 
 [params]
 
