@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://dkyi81pt0xq8h"]
+[gd_scene load_steps=18 format=3 uid="uid://dkyi81pt0xq8h"]
 
 [ext_resource type="TileSet" uid="uid://5ec7aqryvhob" path="res://Tileset.tres" id="1_fgaav"]
 [ext_resource type="Theme" uid="uid://cqlcjx0e4f7ox" path="res://new_theme.tres" id="2_6lah5"]
@@ -6,9 +6,11 @@
 [ext_resource type="Script" uid="uid://dl5tqwls5bk8p" path="res://scene_change.gd" id="4_8kdgp"]
 [ext_resource type="Texture2D" uid="uid://o4ua42msu3ew" path="res://assets/fishtank.png" id="5_gmb2m"]
 [ext_resource type="Texture2D" uid="uid://desx6lkavlq0" path="res://assets/FishFrame.png" id="6_8kdgp"]
+[ext_resource type="Script" uid="uid://bcdlhtbmrvus7" path="res://fish_tank.gd" id="6_msgp6"]
 [ext_resource type="Script" uid="uid://b8hflqyw0dblf" path="res://fish_display.gd" id="6_myf4l"]
 [ext_resource type="Texture2D" uid="uid://dw53nbpaxlfhq" path="res://assets/Fish/Clown.png" id="7_8kdgp"]
 [ext_resource type="Script" uid="uid://bosh1ciewx1gk" path="res://interact_area.gd" id="8_p5a0g"]
+[ext_resource type="Texture2D" uid="uid://d0heyxpnc50l6" path="res://assets/shopCounter.png" id="8_sw5c6"]
 [ext_resource type="PackedScene" uid="uid://bdxlsixuf0tg" path="res://text_box.tscn" id="9_xqmyw"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_myf4l"]
@@ -18,7 +20,13 @@ size = Vector2(20, 4)
 size = Vector2(20, 4)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1ecfl"]
+size = Vector2(16, 16)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_sw5c6"]
 size = Vector2(16, 32)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_msgp6"]
+size = Vector2(31, 62)
 
 [node name="Node2D" type="Node2D"]
 
@@ -74,6 +82,7 @@ position = Vector2(80, 8)
 collision_layer = 2
 collision_mask = 0
 monitoring = false
+script = ExtResource("6_myf4l")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Entities/FishDisplay2"]
 shape = SubResource("RectangleShape2D_1ecfl")
@@ -89,6 +98,7 @@ position = Vector2(112, 8)
 collision_layer = 2
 collision_mask = 0
 monitoring = false
+script = ExtResource("6_myf4l")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Entities/FishDisplay3"]
 shape = SubResource("RectangleShape2D_1ecfl")
@@ -104,16 +114,32 @@ position = Vector2(8, 83)
 collision_layer = 2
 collision_mask = 0
 monitoring = false
-script = ExtResource("8_p5a0g")
+script = ExtResource("6_msgp6")
 interact_type = "text_box"
 interact_value = "Look at all those fishies
 You've caught <num> fishes so far"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Entities/FishTank"]
-shape = SubResource("RectangleShape2D_1ecfl")
+shape = SubResource("RectangleShape2D_sw5c6")
 
 [node name="Tank" type="Sprite2D" parent="Entities/FishTank"]
 texture = ExtResource("5_gmb2m")
+
+[node name="ShopCounter" type="Area2D" parent="Entities"]
+collision_layer = 2
+collision_mask = 0
+monitoring = false
+script = ExtResource("8_p5a0g")
+interact_type = "text_box"
+interact_value = "Open shop here"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Entities/ShopCounter"]
+position = Vector2(144.5, 81)
+shape = SubResource("RectangleShape2D_msgp6")
+
+[node name="Counter" type="Sprite2D" parent="Entities/ShopCounter"]
+position = Vector2(144, 80)
+texture = ExtResource("8_sw5c6")
 
 [node name="Player" parent="." instance=ExtResource("3_gmb2m")]
 position = Vector2(98, 107)
@@ -121,6 +147,7 @@ position = Vector2(98, 107)
 [node name="TextBox" parent="." instance=ExtResource("9_xqmyw")]
 
 [node name="Greyboxing" type="Control" parent="."]
+visible = false
 layout_mode = 3
 anchors_preset = 0
 offset_right = 3.0
@@ -137,58 +164,9 @@ offset_left = 144.0
 offset_right = 160.0
 offset_bottom = 16.0
 
-[node name="FishTank" type="Panel" parent="Greyboxing"]
-visible = false
-layout_mode = 0
-offset_top = 67.0
-offset_right = 16.0
-offset_bottom = 99.0
-
-[node name="CashDoor" type="Panel" parent="Greyboxing"]
-layout_mode = 0
-offset_left = 144.0
-offset_top = 48.0
-offset_right = 160.0
-offset_bottom = 64.0
-
-[node name="Cash" type="Panel" parent="Greyboxing"]
-layout_mode = 0
-offset_left = 144.0
-offset_top = 92.0
-offset_right = 160.0
-offset_bottom = 108.0
-
-[node name="Cash2" type="Panel" parent="Greyboxing"]
-layout_mode = 0
-offset_left = 128.0
-offset_top = 48.0
-offset_right = 144.0
-offset_bottom = 108.0
-
 [node name="Bathroom Door" type="Panel" parent="Greyboxing"]
 layout_mode = 0
 offset_right = 16.0
-offset_bottom = 16.0
-
-[node name="FishDisplay1" type="Panel" parent="Greyboxing"]
-visible = false
-layout_mode = 0
-offset_left = 72.0
-offset_right = 88.0
-offset_bottom = 16.0
-
-[node name="FishDisplay2" type="Panel" parent="Greyboxing"]
-visible = false
-layout_mode = 0
-offset_left = 104.0
-offset_right = 120.0
-offset_bottom = 16.0
-
-[node name="FishDisplay3" type="Panel" parent="Greyboxing"]
-visible = false
-layout_mode = 0
-offset_left = 40.0
-offset_right = 56.0
 offset_bottom = 16.0
 
 [node name="Fish List" type="Label" parent="Greyboxing"]
@@ -209,13 +187,13 @@ X Clown
 - Catfish
 
 Rare:
-- Pig fish (bluebell)
-- Singing Fish (hatsune miku)
-- Machine Fish (v1 ultrakill)
-- Drimp (cruelty squad)
-- Shark (Blahaj)
+X Pig fish (bluebell)
+X Singing Fish (hatsune miku)
+X Machine Fish (v1 ultrakill)
+X Drimp (cruelty squad)
+X Shark (Blahaj)
 
 Hack Rare:
-- Orpheus
+X Orpheus
 X at_fish
 X Magical Frog"

@@ -21,7 +21,6 @@ position = Vector2(18, 15)
 collision_layer = 2
 collision_mask = 0
 script = ExtResource("2_hc3dj")
-interact_label = "Fibsh"
 interact_type = "fish_area"
 interact_value = "This is where you would fish"
 

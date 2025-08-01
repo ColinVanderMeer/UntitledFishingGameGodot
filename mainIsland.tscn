@@ -2,7 +2,6 @@
 
 [ext_resource type="TileSet" uid="uid://5ec7aqryvhob" path="res://Tileset.tres" id="1_ouim0"]
 [ext_resource type="PackedScene" uid="uid://cv2fcay36vca2" path="res://player.tscn" id="2_2rafd"]
-[ext_resource type="PackedScene" uid="uid://c3lalbn7b8x4a" path="res://interact_area.tscn" id="3_v6m0x"]
 [ext_resource type="Script" uid="uid://bosh1ciewx1gk" path="res://interact_area.gd" id="4_q2yj1"]
 [ext_resource type="Texture2D" uid="uid://ibtljuhv4ory" path="res://assets/sign.png" id="5_p7jcx"]
 [ext_resource type="PackedScene" uid="uid://bdxlsixuf0tg" path="res://text_box.tscn" id="7_gmo30"]
@@ -10,6 +9,8 @@
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8ehth"]
 size = Vector2(5, 128)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_leyo6"]
 
 [node name="MainIsland2" type="Node2D"]
 
@@ -23,7 +24,6 @@ position = Vector2(18, 15)
 collision_layer = 2
 collision_mask = 0
 script = ExtResource("4_q2yj1")
-interact_label = "Fibsh"
 interact_type = "fish_area"
 interact_value = "This is where you would fish"
 
@@ -50,11 +50,16 @@ position = Vector2(5, 85)
 position = Vector2(118, -62)
 texture = ExtResource("5_p7jcx")
 
-[node name="InteractArea" parent="Entities/Sign" instance=ExtResource("3_v6m0x")]
+[node name="InteractArea" type="Area2D" parent="Entities/Sign"]
 collision_layer = 3
-interact_label = "2"
+collision_mask = 0
+monitoring = false
+script = ExtResource("4_q2yj1")
 interact_type = "text_box"
 interact_value = "Welcome to Fishing! Use Lto interact with objects, K to close text boxes, and I to open the menu."
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Entities/Sign/InteractArea"]
+shape = SubResource("RectangleShape2D_leyo6")
 
 [node name="Player" parent="." instance=ExtResource("2_2rafd")]
 position = Vector2(58, 43)
