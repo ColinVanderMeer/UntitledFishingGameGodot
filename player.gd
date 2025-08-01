@@ -45,6 +45,18 @@ func _physics_process(_delta):
 	
 	if Input.is_action_just_pressed("interact"):
 		execute_interaction()
+		
+	# For some reason if the character is ever on .0 it messes up the rendering?
+	# This is a hack fix cuz I can't figure out why it does that
+	if abs(self.global_position.x - int(self.global_position.x)) < 0.1:
+		self.global_position.x += 0.1
+	if abs(self.global_position.y - int(self.global_position.y)) < 0.1:
+		self.global_position.y += 0.1
+	if abs(self.global_position.x - int(self.global_position.x)) > 0.9:
+		self.global_position.x -= 0.1
+	if abs(self.global_position.y - int(self.global_position.y)) < 0.9:
+		self.global_position.y -= 0.1
+		
 
 
 func fish_missed():
@@ -99,7 +111,6 @@ func _on_interaction_area_area_exited(area):
 		#interactLabel.text = ""
 		
 func scene_change(area):
-	print(area.direction)
 	match area.direction:
 		0: # North
 			Global.player_spawn_position = Vector2(self.global_position.x, 115)
@@ -118,7 +129,6 @@ func _deferred_scene_change(map_path):
 	get_tree().change_scene_to_file(map_path)
 
 func execute_interaction():
-	print(self.global_position[0])
 	if all_interactions:
 		var current_interaction = all_interactions[0]
 		match current_interaction.interact_type:
