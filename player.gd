@@ -14,7 +14,7 @@ var sprite_direction = "S": get = _get_sprite_direction
 
 @onready var textBox = get_tree().get_nodes_in_group("TextBox")[0]
 @onready var textBoxLabel = textBox.get_node("Label")
-
+@onready var textBoxFishSprite = textBox.get_node("FishSprite")
 
 var rng = RandomNumberGenerator.new()
 
@@ -36,12 +36,10 @@ func _physics_process(_delta):
 			set_animation("Idle")
 		else: 
 			set_animation("Walk")
+			
 	if fishing:
 		if !fish_hooked:
-			if rng.randi_range(0,120) == 0:
-				fish_hooked = true
-				fishAlert.visible = true
-				fishTimer.start()
+			fishing_process()
 	
 	if Input.is_action_just_pressed("interact"):
 		execute_interaction()
@@ -57,14 +55,82 @@ func _physics_process(_delta):
 	if abs(self.global_position.y - int(self.global_position.y)) < 0.9:
 		self.global_position.y -= 0.1
 
-
-
+func fishing_process():
+	if rng.randi_range(0,120) == 0:
+		fish_hooked = true
+		fishAlert.visible = true
+		fishTimer.start()
 
 func fish_missed():
 	fish_hooked = false
 	Global.interact = false
 	fishAlert.visible = false
 	fishing = false
+	
+func catch_fish():
+	var fish_caught = select_fish()
+	var fish_info = Global.fish_data[fish_caught]
+	var fish_weight = generate_fish_weight(fish_caught)
+	
+	textBoxLabel.text = "You caught a %s weighing %.2f kg!" % [fish_info.name, fish_weight]
+	textBox.visible = true
+	
+	print(fish_caught)
+	print(str(fish_caught))
+	
+	textBoxFishSprite.texture = load(fish_info.texture)
+	textBoxFishSprite.visible = true
+	
+
+	Global.interact = false
+	fish_hooked = false
+	fishAlert.visible = false
+	fishing = false
+	fishTimer.stop()
+	
+func select_fish():
+	var common_fish = [
+		Global.fish_list.clown,
+		Global.fish_list.cod,
+		Global.fish_list.salmon,
+		Global.fish_list.pufferfish,
+		Global.fish_list.tuna,
+		Global.fish_list.sea_bass,
+		Global.fish_list.catfish
+	]
+	
+	var rare_fish = [
+		Global.fish_list.pig_fish,
+		Global.fish_list.singing_fish,
+		Global.fish_list.machine_fish,
+		Global.fish_list.drimp,
+		Global.fish_list.shark
+	]
+	
+	var hack_rare_fish = [
+		Global.fish_list.at_fish,
+		Global.fish_list.magical_frog,
+		Global.fish_list.orpheus
+	]
+
+	var roll = rng.randf()
+
+	if roll >= 0.95: # 5% chance hack rare
+		return hack_rare_fish[rng.randi_range(0, hack_rare_fish.size() - 1)]
+	elif roll >= 0.75: # 20% chance rare
+		return rare_fish[rng.randi_range(0, rare_fish.size() - 1)]
+	else: # 75% chance common
+		return common_fish[rng.randi_range(0, common_fish.size() - 1)]
+		
+func generate_fish_weight(fish_type):
+	var range = Global.fish_data[fish_type].weight
+	var min_w = range.x
+	var max_w = range.y
+
+	var roll = rng.randf()
+	var weight = min_w + pow(roll, 2.5) * (max_w - min_w)
+
+	return weight
 
 func set_animation(animation):
 	var direction = sprite_direction
@@ -140,12 +206,7 @@ func execute_interaction():
 			"fish_area":
 				if Global.interact:
 					if fish_hooked:
-						print("You caught fish")
-						Global.interact = false
-						fish_hooked = false
-						fishAlert.visible = false
-						fishing = false
-						fishTimer.stop()
+						catch_fish()
 					else:
 						Global.interact = false
 						fishing = false
