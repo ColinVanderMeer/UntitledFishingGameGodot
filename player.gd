@@ -32,9 +32,10 @@ func _physics_process(_delta):
 		velocity = input_direction * SPEED
 		move_and_slide()
 		
-		set_animation("Walk")
 		if velocity == Vector2.ZERO:
 			set_animation("Idle")
+		else: 
+			set_animation("Walk")
 	if fishing:
 		if !fish_hooked:
 			if rng.randi_range(0,120) == 0:
@@ -55,7 +56,8 @@ func _physics_process(_delta):
 		self.global_position.x -= 0.1
 	if abs(self.global_position.y - int(self.global_position.y)) < 0.9:
 		self.global_position.y -= 0.1
-		
+
+
 
 
 func fish_missed():
