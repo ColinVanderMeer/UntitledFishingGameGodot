@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://dkyi81pt0xq8h"]
+[gd_scene load_steps=18 format=4 uid="uid://dkyi81pt0xq8h"]
 
 [ext_resource type="TileSet" uid="uid://5ec7aqryvhob" path="res://Tileset.tres" id="1_fgaav"]
 [ext_resource type="Theme" uid="uid://cqlcjx0e4f7ox" path="res://new_theme.tres" id="2_6lah5"]
@@ -17,7 +17,7 @@
 size = Vector2(20, 4)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_fgaav"]
-size = Vector2(20, 4)
+size = Vector2(35, 4)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1ecfl"]
 size = Vector2(16, 16)
@@ -31,6 +31,7 @@ size = Vector2(31, 62)
 [node name="Node2D" type="Node2D"]
 
 [node name="TileMapLayer" type="TileMapLayer" parent="."]
+tile_map_data = PackedByteArray("AAD//wAAAgAAAAAAAAD//wEAAgAAAAAAAAD//wIAAgAAAAAAAAD//wMAAgAAAAAAAAD//wQAAgAAAAAAAAD//wUAAgAAAAAAAAD//wYAAgAAAAAAAAD//wcAAgAAAAAAAAD//wgAAgAAAAAAAAAAAAgAAgAAAAAAAAAEAAgAAgAAAAAAAAAFAAgAAgAAAAAAAAAGAAgAAgAAAAAAAAAHAAgAAgAAAAAAAAAIAAgAAgAAAAAAAAAJAAgAAgAAAAAAAAAKAAgAAgAAAAAAAAACAP//AgAAAAAAAAADAP//AgAAAAAAAAAEAP//AgAAAAAAAAAFAP//AgAAAAAAAAAGAP//AgAAAAAAAAAHAP//AgAAAAAAAAAIAP//AgAAAAAAAAAJAP//AgAAAAAAAAAKAP//AgAAAAAAAAAKAAAAAgAAAAAAAAAKAAEAAgAAAAAAAAAKAAIAAgAAAAAAAAAKAAUAAgAAAAAAAAAKAAYAAgAAAAAAAAAKAAcAAgAAAAAAAAADAAgAAAAAAAEAAAAKAAMAAgAAAAAAAAABAAgAAAACAAEAAAAKAAQAAgAAAAAAAAA=")
 tile_set = ExtResource("1_fgaav")
 
 [node name="Transitions" type="Node2D" parent="."]
@@ -56,7 +57,7 @@ map = "uid://ctp8gcbbwt2r"
 custom_coordinates = Vector2(40, 113)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Transitions/Bathroom"]
-position = Vector2(7, -5)
+position = Vector2(14.5, -5)
 shape = SubResource("RectangleShape2D_fgaav")
 
 [node name="Entities" type="Node2D" parent="."]
@@ -125,6 +126,11 @@ shape = SubResource("RectangleShape2D_sw5c6")
 [node name="Tank" type="Sprite2D" parent="Entities/FishTank"]
 texture = ExtResource("5_gmb2m")
 
+[node name="Collision" type="StaticBody2D" parent="Entities/FishTank"]
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Entities/FishTank/Collision"]
+shape = SubResource("RectangleShape2D_sw5c6")
+
 [node name="ShopCounter" type="Area2D" parent="Entities"]
 collision_layer = 2
 collision_mask = 0
@@ -140,6 +146,12 @@ shape = SubResource("RectangleShape2D_msgp6")
 [node name="Counter" type="Sprite2D" parent="Entities/ShopCounter"]
 position = Vector2(144, 80)
 texture = ExtResource("8_sw5c6")
+
+[node name="CounterCollision" type="StaticBody2D" parent="Entities/ShopCounter"]
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Entities/ShopCounter/CounterCollision"]
+position = Vector2(144.5, 81)
+shape = SubResource("RectangleShape2D_msgp6")
 
 [node name="Player" parent="." instance=ExtResource("3_gmb2m")]
 position = Vector2(98, 107)
