@@ -8,7 +8,6 @@ var sprite_direction = "S": get = _get_sprite_direction
 @onready var sprite = $AnimatedSprite2D
 
 @onready var all_interactions = []
-@onready var interactLabel = $"InteractionComponents/Label"
 @onready var interactArea = $"InteractionComponents/InteractionArea"
 @onready var fishAlert = $"FishingComponents/Alert"
 @onready var fishTimer = $"FishingComponents/FishTimer"
@@ -102,13 +101,6 @@ func _on_interaction_area_area_entered(area):
 
 func _on_interaction_area_area_exited(area):
 	all_interactions.erase(area)
-	#update_interactions()
-	
-#func update_interactions():
-	#if all_interactions:
-		#interactLabel.text = all_interactions[0].interact_label
-	#else:
-		#interactLabel.text = ""
 		
 func scene_change(area):
 	match area.direction:
