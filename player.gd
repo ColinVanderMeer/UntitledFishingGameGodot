@@ -20,6 +20,7 @@ var rng = RandomNumberGenerator.new()
 
 var fishing = false
 var fish_hooked = false
+var fish_box_up = false
 
 func _ready():
 	if Global.player_spawn_position != Vector2.ZERO:
@@ -72,21 +73,24 @@ func catch_fish():
 	var fish_info = Global.fish_data[fish_caught]
 	var fish_weight = generate_fish_weight(fish_caught)
 	
+	if Global.fish_max_weight[fish_caught] < fish_weight:
+		Global.fish_max_weight[fish_caught] = fish_weight
+	
 	textBoxLabel.text = "You caught a %s weighing %.2f kg!" % [fish_info.name, fish_weight]
 	textBox.visible = true
-	
-	print(fish_caught)
-	print(str(fish_caught))
 	
 	textBoxFishSprite.texture = load(fish_info.texture)
 	textBoxFishSprite.visible = true
 	
 
-	Global.interact = false
+	fishing = false
 	fish_hooked = false
 	fishAlert.visible = false
-	fishing = false
 	fishTimer.stop()
+	
+	fish_box_up = true
+	
+
 	
 func select_fish():
 	var common_fish = [
@@ -191,6 +195,7 @@ func _deferred_scene_change(map_path):
 func execute_interaction():
 	if all_interactions:
 		var current_interaction = all_interactions[0]
+		print(Global.fish_max_weight)
 		match current_interaction.interact_type:
 			"print_text": print(current_interaction.interact_value)
 
@@ -204,12 +209,16 @@ func execute_interaction():
 					Global.interact = true
 
 			"fish_area":
-				if Global.interact:
-					if fish_hooked:
+				if Global.interact: # If fishing
+					if fish_hooked && !fish_box_up: 
 						catch_fish()
-					else:
+					else: # Stop fishing
 						Global.interact = false
 						fishing = false
-				else:
+						
+						textBoxFishSprite.visible = false
+						textBox.visible = false
+						fish_box_up = false
+				else: # Start fishing
 					Global.interact = true
 					fishing = true

@@ -1,5 +1,7 @@
 extends Node
 
+const SAVE_FILE ="user://save_file.save"
+
 var interact = false # I should add a punch card...
 var player_spawn_position = Vector2.ZERO
 
@@ -29,3 +31,50 @@ var fish_data = {
 	fish_list.at_fish:      {"name": "@Fish", "weight": Vector2(0.1, 1.0), "texture": "res://assets/Fish/at_fish.png"},
 	fish_list.magical_frog: {"name": "Magical Frog", "weight": Vector2(0.2, 0.8), "texture": "res://assets/Fish/magical_frog.png"}
 }
+
+var player_save_data = [
+	fish_max_weight,
+	player_money
+]
+
+var player_money = 0
+
+var fish_max_weight = {
+	fish_list.clown: 0,
+	fish_list.cod: 0,
+	fish_list.salmon: 0,
+	fish_list.pufferfish: 0,
+	fish_list.tuna: 0,
+	fish_list.sea_bass: 0,
+	fish_list.catfish: 0,
+
+	fish_list.pig_fish: 0,
+	fish_list.singing_fish: 0,
+	fish_list.machine_fish: 0,
+	fish_list.drimp: 0,
+	fish_list.shark: 0,
+
+	fish_list.orpheus: 0,
+	fish_list.at_fish: 0,
+	fish_list.magical_frog: 0
+}
+
+func save_data():
+	player_save_data = [fish_max_weight, player_money]
+	var file = FileAccess.open(SAVE_FILE, FileAccess.WRITE)
+	file.store_var(player_save_data)
+	file.close()
+
+func load_data():
+	if not FileAccess.file_exists(SAVE_FILE):
+		save_data()
+	var file = FileAccess.open(SAVE_FILE, FileAccess.READ)
+	player_save_data = file.get_var()
+	# If the save file is not the correct length, reset it to prevent out of bounds errors
+	if len(player_save_data) < 1:
+		player_save_data = [fish_max_weight, player_money]
+		save_data()
+	file.close()
+	
+	fish_max_weight = player_save_data[0]
+	player_money = player_save_data[1]
