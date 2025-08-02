@@ -53,7 +53,7 @@ visible = false
 layout_mode = 0
 offset_left = 2.0
 offset_top = 2.0
-offset_right = 80.0
+offset_right = 82.0
 offset_bottom = 126.0
 theme = ExtResource("1_juc2q")
 
@@ -88,6 +88,22 @@ offset_top = 35.0
 offset_right = 39.0
 offset_bottom = 44.0
 text = "Exit"
+
+[node name="MoneyLabel" type="Label" parent="Menu"]
+layout_mode = 0
+offset_left = 5.0
+offset_top = 110.0
+offset_right = 29.0
+offset_bottom = 119.0
+text = "Money: $"
+
+[node name="MoneyCounter" type="Label" parent="Menu"]
+layout_mode = 0
+offset_left = 53.0
+offset_top = 111.0
+offset_right = 95.0
+offset_bottom = 120.0
+text = "9999"
 
 [node name="Selector" type="Sprite2D" parent="Menu"]
 position = Vector2(7, 15)

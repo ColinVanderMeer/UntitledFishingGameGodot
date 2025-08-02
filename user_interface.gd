@@ -31,5 +31,6 @@ func _process(_delta):
 
 	if Input.is_action_just_pressed("MenuButton"):
 		if !Global.interact:
+			$Menu/MoneyCounter.text = str(Global.player_money)
 			$Menu.visible = true
 			Global.interact = true

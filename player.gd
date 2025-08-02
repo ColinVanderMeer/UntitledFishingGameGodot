@@ -72,12 +72,16 @@ func fish_missed():
 func catch_fish():
 	var fish_caught = select_fish()
 	var fish_info = Global.fish_data[fish_caught]
-	var fish_weight = generate_fish_weight(fish_caught)
+	var result = generate_fish_weight_and_price(fish_caught)
+	var fish_weight = result[0]
+	var fish_price = result[1]
+	
 	
 	if Global.fish_max_weight[fish_caught] < fish_weight:
 		Global.fish_max_weight[fish_caught] = fish_weight
+	Global.player_money += fish_price
 	
-	textBoxLabel.text = "You caught a %s weighing %.2f kg!" % [fish_info.name, fish_weight]
+	textBoxLabel.text = "You caught a %s\nweighing %.2f kg!\nIt sold for $%d" % [fish_info.name, fish_weight, fish_price]
 	textBox.visible = true
 	
 	textBoxFishSprite.texture = load(fish_info.texture)
@@ -127,15 +131,24 @@ func select_fish():
 	else: # 75% chance common
 		return common_fish[rng.randi_range(0, common_fish.size() - 1)]
 		
-func generate_fish_weight(fish_type):
+func generate_fish_weight_and_price(fish_type):
 	var range = Global.fish_data[fish_type].weight
 	var min_w = range.x
 	var max_w = range.y
 
 	var roll = rng.randf()
 	var weight = min_w + pow(roll, 2.5) * (max_w - min_w)
+	
+	var price = 2 + pow(roll, 2.5) * 48
+	
+	# If rare then x2, if hack_rare then x3
+	if fish_type > 6:
+		if fish_type > 11:
+			price = price * 3
+		else:
+			price = price * 2
 
-	return weight
+	return [weight, int(price)]
 
 func set_animation(animation):
 	var direction = sprite_direction
