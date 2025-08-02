@@ -35,6 +35,12 @@ func _process(_delta):
 			
 			if Global.fish_max_weight[current_selection] != 0:
 				print("unlocked!!")
+				var fish_info = Global.fish_data[current_selection]
+				
+				$FishInfoDisplay/Fish.texture = load(fish_info.texture)
+				$FishInfoDisplay/FishDescription.text = fish_info.description
+				$FishInfoDisplay/MaxWeight.text = "%.2f Kg" % [Global.fish_max_weight[current_selection]]
+				
 				$FishList.visible = false
 				$FishInfoDisplay.visible = true
 		

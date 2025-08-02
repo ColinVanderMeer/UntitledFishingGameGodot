@@ -33,7 +33,6 @@ corner_radius_bottom_right = 5
 corner_radius_bottom_left = 5
 
 [node name="PcInterface" type="Control" groups=["PcInterface"]]
-visible = false
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -166,19 +165,19 @@ offset_right = 160.0
 offset_bottom = 128.0
 theme = ExtResource("19_abqq5")
 
-[node name="AtFish" type="Sprite2D" parent="FishInfoDisplay"]
+[node name="Fish" type="Sprite2D" parent="FishInfoDisplay"]
 position = Vector2(15, 10)
 scale = Vector2(4, 4)
-texture = ExtResource("15_1op6q")
+texture = ExtResource("6_t1mc5")
 centered = false
 
-[node name="Label" type="Label" parent="FishInfoDisplay"]
+[node name="FishDescription" type="Label" parent="FishInfoDisplay"]
 layout_mode = 0
 offset_left = 62.0
 offset_top = 3.0
 offset_right = 158.0
 offset_bottom = 122.0
-text = "This is now full of text so that I can see how much text I can fit into a box about this size, I may change it to word wrap mode too so it's slightly more readable if I can squeeze in lots of"
+text = "This fish is known all across the ocean for its incredible singing voice and hit line of rhythm games based off of its songs"
 autowrap_mode = 1
 
 [node name="MaxWeightLabel" type="Label" parent="FishInfoDisplay"]

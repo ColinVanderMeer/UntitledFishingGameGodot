@@ -191,3 +191,4 @@ position = Vector2(98, 107)
 [node name="UserInterface" parent="." instance=ExtResource("12_msgp6")]
 
 [node name="PcInterface" parent="." instance=ExtResource("13_e23gp")]
+visible = false
