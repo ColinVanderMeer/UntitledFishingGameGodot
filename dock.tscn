@@ -4,7 +4,7 @@
 [ext_resource type="Script" uid="uid://bosh1ciewx1gk" path="res://interact_area.gd" id="2_hc3dj"]
 [ext_resource type="Script" uid="uid://dl5tqwls5bk8p" path="res://scene_change.gd" id="4_rcesp"]
 [ext_resource type="PackedScene" uid="uid://cv2fcay36vca2" path="res://player.tscn" id="5_ebhwl"]
-[ext_resource type="PackedScene" uid="uid://bdxlsixuf0tg" path="res://text_box.tscn" id="5_gi7p1"]
+[ext_resource type="PackedScene" uid="uid://tunphkrbul7k" path="res://user_interface.tscn" id="5_gi7p1"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_u8ds3"]
 size = Vector2(160, 5)
@@ -43,4 +43,4 @@ shape = SubResource("RectangleShape2D_u8ds3")
 [node name="Player" parent="." instance=ExtResource("5_ebhwl")]
 position = Vector2(94, 61)
 
-[node name="TextBox" parent="." instance=ExtResource("5_gi7p1")]
+[node name="UserInterface" parent="." instance=ExtResource("5_gi7p1")]

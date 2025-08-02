@@ -3,9 +3,9 @@
 [ext_resource type="TileSet" uid="uid://5ec7aqryvhob" path="res://Tileset.tres" id="1_iyxh2"]
 [ext_resource type="PackedScene" uid="uid://cv2fcay36vca2" path="res://player.tscn" id="3_618us"]
 [ext_resource type="Script" uid="uid://dl5tqwls5bk8p" path="res://scene_change.gd" id="4_hwn3p"]
-[ext_resource type="PackedScene" uid="uid://bdxlsixuf0tg" path="res://text_box.tscn" id="5_618us"]
 [ext_resource type="Script" uid="uid://bosh1ciewx1gk" path="res://interact_area.gd" id="5_l20ly"]
 [ext_resource type="Texture2D" uid="uid://cpdq1rt31bn6p" path="res://assets/toilet.png" id="6_618us"]
+[ext_resource type="PackedScene" uid="uid://tunphkrbul7k" path="res://user_interface.tscn" id="6_hwn3p"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_618us"]
 size = Vector2(16, 16)
@@ -52,4 +52,4 @@ texture = ExtResource("6_618us")
 [node name="Player" parent="." instance=ExtResource("3_618us")]
 position = Vector2(40, 113)
 
-[node name="TextBox" parent="." instance=ExtResource("5_618us")]
+[node name="UserInterface" parent="." instance=ExtResource("6_hwn3p")]

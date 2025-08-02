@@ -5,7 +5,7 @@
 [ext_resource type="Script" uid="uid://dl5tqwls5bk8p" path="res://scene_change.gd" id="4_2jreh"]
 [ext_resource type="Texture2D" uid="uid://dwu3ucbj1gbq" path="res://assets/shop.png" id="5_2rpcb"]
 [ext_resource type="PackedScene" uid="uid://cv2fcay36vca2" path="res://player.tscn" id="5_8f1rm"]
-[ext_resource type="PackedScene" uid="uid://bdxlsixuf0tg" path="res://text_box.tscn" id="6_2rpcb"]
+[ext_resource type="PackedScene" uid="uid://tunphkrbul7k" path="res://user_interface.tscn" id="6_2rpcb"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_rpar3"]
 size = Vector2(5, 128)
@@ -66,4 +66,4 @@ texture = ExtResource("5_2rpcb")
 [node name="Player" parent="." instance=ExtResource("5_8f1rm")]
 position = Vector2(104, 43)
 
-[node name="TextBox" parent="." instance=ExtResource("6_2rpcb")]
+[node name="UserInterface" parent="." instance=ExtResource("6_2rpcb")]

@@ -4,7 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://cv2fcay36vca2" path="res://player.tscn" id="2_2rafd"]
 [ext_resource type="Script" uid="uid://bosh1ciewx1gk" path="res://interact_area.gd" id="4_q2yj1"]
 [ext_resource type="Texture2D" uid="uid://ibtljuhv4ory" path="res://assets/sign.png" id="5_p7jcx"]
-[ext_resource type="PackedScene" uid="uid://bdxlsixuf0tg" path="res://text_box.tscn" id="7_gmo30"]
+[ext_resource type="PackedScene" uid="uid://tunphkrbul7k" path="res://user_interface.tscn" id="6_8ehth"]
 [ext_resource type="Script" uid="uid://dl5tqwls5bk8p" path="res://scene_change.gd" id="7_leyo6"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8ehth"]
@@ -64,4 +64,4 @@ shape = SubResource("RectangleShape2D_leyo6")
 [node name="Player" parent="." instance=ExtResource("2_2rafd")]
 position = Vector2(58, 43)
 
-[node name="TextBox" parent="." instance=ExtResource("7_gmo30")]
+[node name="UserInterface" parent="." instance=ExtResource("6_8ehth")]

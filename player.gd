@@ -12,9 +12,10 @@ var sprite_direction = "S": get = _get_sprite_direction
 @onready var fishAlert = $"FishingComponents/Alert"
 @onready var fishTimer = $"FishingComponents/FishTimer"
 
-@onready var textBox = get_tree().get_nodes_in_group("TextBox")[0]
-@onready var textBoxLabel = textBox.get_node("Label")
-@onready var textBoxFishSprite = textBox.get_node("FishSprite")
+@onready var userInterface = get_tree().get_nodes_in_group("UserInterface")[0]
+@onready var textBox = userInterface.get_node("TextBox")
+@onready var textBoxLabel = userInterface.get_node("TextBox/TextBoxLabel")
+@onready var textBoxFishSprite = userInterface.get_node("TextBox/FishSprite")
 
 var rng = RandomNumberGenerator.new()
 
