@@ -208,6 +208,7 @@ func _deferred_scene_change(map_path):
 	get_tree().change_scene_to_file(map_path)
 
 func execute_interaction():
+	await Engine.get_main_loop().process_frame
 	if all_interactions:
 		var current_interaction = all_interactions[0]
 		print(Global.fish_max_weight)

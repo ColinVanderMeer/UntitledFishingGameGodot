@@ -14,6 +14,7 @@ func _process(_delta):
 			if current_selection > 2:
 				current_selection = 0
 		if Input.is_action_just_pressed("interact"):
+			await Engine.get_main_loop().process_frame
 			match current_selection:
 				0:
 					Global.save_data()

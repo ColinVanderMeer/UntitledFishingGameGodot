@@ -25,6 +25,7 @@ func _process(_delta):
 			if current_selection_h > 3:
 				current_selection_h = 0
 		if Input.is_action_just_pressed("interact"):
+			await Engine.get_main_loop().process_frame
 			var current_selection = current_selection_h + current_selection_v * 4
 			
 			if current_selection == 15:
@@ -53,7 +54,8 @@ func _process(_delta):
 			if current_selection_display > 3:
 				current_selection_display = 0
 				
-		if Input.is_action_just_pressed("interact"):			
+		if Input.is_action_just_pressed("interact"):	
+			await Engine.get_main_loop().process_frame		
 			match current_selection_display:
 				0:
 					pass
