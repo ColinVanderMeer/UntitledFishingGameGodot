@@ -17,6 +17,7 @@ var sprite_direction = "S": get = _get_sprite_direction
 @onready var textBoxLabel = userInterface.get_node("TextBox/TextBoxLabel")
 @onready var textBoxFishSprite = userInterface.get_node("TextBox/FishSprite")
 
+
 var rng = RandomNumberGenerator.new()
 
 var fishing = false
@@ -220,6 +221,12 @@ func execute_interaction():
 				else:
 					textBoxLabel.text = current_interaction.interact_value
 					textBox.visible = true
+					Global.interact = true
+					
+			"open_pc":
+				var pcInterface = get_tree().get_nodes_in_group("PcInterface")[0]
+				if !Global.interact:
+					pcInterface.visible = true
 					Global.interact = true
 
 			"fish_area":

@@ -1,0 +1,237 @@
+[gd_scene load_steps=21 format=3 uid="uid://r3o7q6fpmsu6"]
+
+[ext_resource type="Texture2D" uid="uid://dw53nbpaxlfhq" path="res://assets/Fish/clown.png" id="1_aydsg"]
+[ext_resource type="Script" uid="uid://dhjfih1ahs5sf" path="res://pc_interface.gd" id="1_mbypa"]
+[ext_resource type="Script" uid="uid://bbxcyjpno47ah" path="res://fish_in_pc.gd" id="2_mbypa"]
+[ext_resource type="Texture2D" uid="uid://ubjl8703ftqt" path="res://assets/Fish/cod.png" id="3_abqq5"]
+[ext_resource type="Texture2D" uid="uid://bwy1ycix67i2p" path="res://assets/Fish/salmon.png" id="4_61320"]
+[ext_resource type="Texture2D" uid="uid://bl2k127036khg" path="res://assets/Fish/pufferfish.png" id="5_sah08"]
+[ext_resource type="Texture2D" uid="uid://dxeciojdl6ik5" path="res://assets/Fish/tuna.png" id="6_t1mc5"]
+[ext_resource type="Texture2D" uid="uid://bf0232rbc6aju" path="res://assets/Fish/sea_bass.png" id="7_wgiiq"]
+[ext_resource type="Texture2D" uid="uid://4o2pub715omi" path="res://assets/Fish/catfish.png" id="8_cdw8r"]
+[ext_resource type="Texture2D" uid="uid://bula0cki2kpwt" path="res://assets/Fish/pig_fish.png" id="9_t4tpg"]
+[ext_resource type="Texture2D" uid="uid://cr5c3rbyd0sp2" path="res://assets/Fish/singing_fish.png" id="10_xibks"]
+[ext_resource type="Texture2D" uid="uid://pnm11y1jqmym" path="res://assets/Fish/machine_fish.png" id="11_1fgrh"]
+[ext_resource type="Texture2D" uid="uid://cv2byp7sjpmqc" path="res://assets/Fish/drimp.png" id="12_7hf4y"]
+[ext_resource type="Texture2D" uid="uid://fvha1yjq5yvh" path="res://assets/Fish/shark.png" id="13_rtlov"]
+[ext_resource type="Texture2D" uid="uid://da5piwn7g24c8" path="res://assets/Fish/orpheus.png" id="14_8lq2i"]
+[ext_resource type="Texture2D" uid="uid://bnlph0w61wsrr" path="res://assets/Fish/at_fish.png" id="15_1op6q"]
+[ext_resource type="Texture2D" uid="uid://dn0ee0jmadqx7" path="res://assets/Fish/magical_frog.png" id="16_ghmfo"]
+[ext_resource type="Texture2D" uid="uid://d07b0qqaeyj8s" path="res://assets/selector.png" id="17_x7j1b"]
+[ext_resource type="Theme" uid="uid://cqlcjx0e4f7ox" path="res://new_theme.tres" id="19_abqq5"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_aydsg"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(1, 1, 0, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[node name="PcInterface" type="Control" groups=["PcInterface"]]
+visible = false
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_mbypa")
+
+[node name="FishList" type="Panel" parent="."]
+layout_mode = 0
+offset_right = 160.0
+offset_bottom = 128.0
+
+[node name="GridContainer" type="GridContainer" parent="FishList"]
+layout_mode = 0
+offset_left = 13.0
+offset_top = 5.0
+offset_right = 58.0
+offset_bottom = 44.0
+scale = Vector2(3, 3)
+theme_override_constants/h_separation = 4
+theme_override_constants/v_separation = 2
+columns = 4
+
+[node name="clown" type="TextureRect" parent="FishList/GridContainer"]
+layout_mode = 2
+texture = ExtResource("1_aydsg")
+script = ExtResource("2_mbypa")
+
+[node name="cod" type="TextureRect" parent="FishList/GridContainer"]
+layout_mode = 2
+texture = ExtResource("3_abqq5")
+script = ExtResource("2_mbypa")
+fish_type = 1
+
+[node name="salmon" type="TextureRect" parent="FishList/GridContainer"]
+layout_mode = 2
+texture = ExtResource("4_61320")
+script = ExtResource("2_mbypa")
+fish_type = 2
+
+[node name="pufferfish" type="TextureRect" parent="FishList/GridContainer"]
+layout_mode = 2
+texture = ExtResource("5_sah08")
+script = ExtResource("2_mbypa")
+fish_type = 3
+
+[node name="tuna" type="TextureRect" parent="FishList/GridContainer"]
+layout_mode = 2
+texture = ExtResource("6_t1mc5")
+script = ExtResource("2_mbypa")
+fish_type = 4
+
+[node name="sea_bass" type="TextureRect" parent="FishList/GridContainer"]
+layout_mode = 2
+texture = ExtResource("7_wgiiq")
+script = ExtResource("2_mbypa")
+fish_type = 5
+
+[node name="catfish" type="TextureRect" parent="FishList/GridContainer"]
+layout_mode = 2
+texture = ExtResource("8_cdw8r")
+script = ExtResource("2_mbypa")
+fish_type = 6
+
+[node name="pig_fish" type="TextureRect" parent="FishList/GridContainer"]
+layout_mode = 2
+texture = ExtResource("9_t4tpg")
+script = ExtResource("2_mbypa")
+fish_type = 7
+
+[node name="singing_fish" type="TextureRect" parent="FishList/GridContainer"]
+layout_mode = 2
+texture = ExtResource("10_xibks")
+script = ExtResource("2_mbypa")
+fish_type = 8
+
+[node name="machine_fish" type="TextureRect" parent="FishList/GridContainer"]
+layout_mode = 2
+texture = ExtResource("11_1fgrh")
+script = ExtResource("2_mbypa")
+fish_type = 9
+
+[node name="drimp" type="TextureRect" parent="FishList/GridContainer"]
+layout_mode = 2
+texture = ExtResource("12_7hf4y")
+script = ExtResource("2_mbypa")
+fish_type = 10
+
+[node name="shark" type="TextureRect" parent="FishList/GridContainer"]
+layout_mode = 2
+texture = ExtResource("13_rtlov")
+script = ExtResource("2_mbypa")
+fish_type = 11
+
+[node name="orpheus" type="TextureRect" parent="FishList/GridContainer"]
+layout_mode = 2
+texture = ExtResource("14_8lq2i")
+script = ExtResource("2_mbypa")
+fish_type = 12
+
+[node name="at_fish" type="TextureRect" parent="FishList/GridContainer"]
+layout_mode = 2
+texture = ExtResource("15_1op6q")
+script = ExtResource("2_mbypa")
+fish_type = 13
+
+[node name="magical_frog" type="TextureRect" parent="FishList/GridContainer"]
+layout_mode = 2
+texture = ExtResource("16_ghmfo")
+script = ExtResource("2_mbypa")
+fish_type = 14
+
+[node name="BackButton" type="TextureRect" parent="FishList/GridContainer"]
+layout_mode = 2
+texture = ExtResource("17_x7j1b")
+
+[node name="Selector" type="Panel" parent="FishList"]
+layout_mode = 0
+offset_left = 10.0
+offset_top = 2.0
+offset_right = 40.0
+offset_bottom = 32.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_aydsg")
+
+[node name="FishInfoDisplay" type="Panel" parent="."]
+visible = false
+layout_mode = 0
+offset_right = 160.0
+offset_bottom = 128.0
+theme = ExtResource("19_abqq5")
+
+[node name="AtFish" type="Sprite2D" parent="FishInfoDisplay"]
+position = Vector2(15, 10)
+scale = Vector2(4, 4)
+texture = ExtResource("15_1op6q")
+centered = false
+
+[node name="Label" type="Label" parent="FishInfoDisplay"]
+layout_mode = 0
+offset_left = 62.0
+offset_top = 3.0
+offset_right = 158.0
+offset_bottom = 122.0
+text = "This is now full of text so that I can see how much text I can fit into a box about this size, I may change it to word wrap mode too so it's slightly more readable if I can squeeze in lots of"
+autowrap_mode = 1
+
+[node name="MaxWeightLabel" type="Label" parent="FishInfoDisplay"]
+offset_left = 5.0
+offset_top = 49.0
+offset_right = 47.0
+offset_bottom = 72.0
+text = "Weight:"
+
+[node name="MaxWeight" type="Label" parent="FishInfoDisplay"]
+layout_mode = 0
+offset_left = 5.0
+offset_top = 59.0
+offset_right = 53.0
+offset_bottom = 68.0
+text = "12.54 Kg"
+
+[node name="DisplayFrameLabel" type="Label" parent="FishInfoDisplay"]
+offset_left = 5.0
+offset_top = 76.0
+offset_right = 47.0
+offset_bottom = 99.0
+text = "Display"
+
+[node name="DisplayFrame2" type="Label" parent="FishInfoDisplay"]
+offset_left = 15.0
+offset_top = 86.0
+offset_right = 57.0
+offset_bottom = 109.0
+text = "Frame 1"
+
+[node name="DisplayFrame3" type="Label" parent="FishInfoDisplay"]
+offset_left = 15.0
+offset_top = 96.0
+offset_right = 57.0
+offset_bottom = 119.0
+text = "Frame 2"
+
+[node name="DisplayFrame4" type="Label" parent="FishInfoDisplay"]
+offset_left = 15.0
+offset_top = 106.0
+offset_right = 57.0
+offset_bottom = 129.0
+text = "Frame 3"
+
+[node name="Exit" type="Label" parent="FishInfoDisplay"]
+offset_left = 15.0
+offset_top = 116.0
+offset_right = 57.0
+offset_bottom = 139.0
+text = "Exit"
+
+[node name="Selector" type="Sprite2D" parent="FishInfoDisplay"]
+position = Vector2(7, 86)
+texture = ExtResource("17_x7j1b")
+centered = false

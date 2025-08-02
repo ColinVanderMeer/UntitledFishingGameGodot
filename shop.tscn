@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=4 uid="uid://dkyi81pt0xq8h"]
+[gd_scene load_steps=22 format=4 uid="uid://dkyi81pt0xq8h"]
 
 [ext_resource type="TileSet" uid="uid://5ec7aqryvhob" path="res://Tileset.tres" id="1_fgaav"]
 [ext_resource type="PackedScene" uid="uid://cv2fcay36vca2" path="res://player.tscn" id="3_gmb2m"]
@@ -12,6 +12,7 @@
 [ext_resource type="Texture2D" uid="uid://d0heyxpnc50l6" path="res://assets/shopCounter.png" id="8_sw5c6"]
 [ext_resource type="Texture2D" uid="uid://co17kja7mubaa" path="res://assets/pc.png" id="10_e23gp"]
 [ext_resource type="PackedScene" uid="uid://tunphkrbul7k" path="res://user_interface.tscn" id="12_msgp6"]
+[ext_resource type="PackedScene" uid="uid://r3o7q6fpmsu6" path="res://pc_interface.tscn" id="13_e23gp"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_myf4l"]
 size = Vector2(20, 4)
@@ -163,10 +164,12 @@ position = Vector2(144, 81)
 shape = SubResource("RectangleShape2D_rrolr")
 
 [node name="PC" type="Area2D" parent="Entities"]
+position = Vector2(-1, 0)
 collision_layer = 2
 collision_mask = 0
 monitoring = false
 script = ExtResource("8_p5a0g")
+interact_type = "open_pc"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Entities/PC"]
 position = Vector2(152, 16)
@@ -186,3 +189,5 @@ shape = SubResource("RectangleShape2D_763b7")
 position = Vector2(98, 107)
 
 [node name="UserInterface" parent="." instance=ExtResource("12_msgp6")]
+
+[node name="PcInterface" parent="." instance=ExtResource("13_e23gp")]
