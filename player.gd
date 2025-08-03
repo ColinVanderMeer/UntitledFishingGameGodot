@@ -59,7 +59,7 @@ func _physics_process(_delta):
 		self.global_position.y -= 0.1
 
 func fishing_process():
-	if rng.randi_range(0,120) == 0:
+	if rng.randi_range(0,120 - Global.catch_speed_increase * 5) == 0:
 		fish_hooked = true
 		fishAlert.visible = true
 		fishTimer.start()
@@ -127,9 +127,9 @@ func select_fish():
 
 	var roll = rng.randf()
 
-	if roll >= 0.95: # 5% chance hack rare
+	if roll >= (0.95 - Global.rarity_increase * 0.02): # 5% chance hack rare
 		return hack_rare_fish[rng.randi_range(0, hack_rare_fish.size() - 1)]
-	elif roll >= 0.75: # 20% chance rare
+	elif roll >= (0.75 - Global.rarity_increase * 0.05): # 20% chance rare
 		return rare_fish[rng.randi_range(0, rare_fish.size() - 1)]
 	else: # 75% chance common
 		return common_fish[rng.randi_range(0, common_fish.size() - 1)]
@@ -139,7 +139,7 @@ func generate_fish_weight_and_price(fish_type):
 	var min_w = range.x
 	var max_w = range.y
 
-	var roll = rng.randf()
+	var roll = rng.randf() + Global.weight_increase * 0.1
 	var weight = min_w + pow(roll, 2.5) * (max_w - min_w)
 	
 	var price = 2 + pow(roll, 2.5) * 48
@@ -231,6 +231,13 @@ func execute_interaction():
 				var fishInterface = pcInterface.get_node("FishList")
 				if !Global.interact:
 					fishInterface.visible = true
+					Global.interact = true
+					
+			"open_shop":
+				var shopInterface = get_tree().get_nodes_in_group("ShopInterface")[0]
+				var shop2Interface = shopInterface.get_node("Shop")
+				if !Global.interact:
+					shop2Interface.visible = true
 					Global.interact = true
 					
 			"fish_display":

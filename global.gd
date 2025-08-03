@@ -82,16 +82,23 @@ var fish_display_fish = [
 	fish_list.clown
 ]
 
+var catch_speed_increase = 0
+var weight_increase = 0
+var rarity_increase = 0
+
 var player_save_data = [
 	fish_max_weight,
 	player_money,
 	fish_times_caught,
 	all_fish_times_caught,
-	fish_display_fish
+	fish_display_fish,
+	catch_speed_increase,
+	weight_increase,
+	rarity_increase
 ]
 
 func save_data():
-	player_save_data = [fish_max_weight, player_money, fish_times_caught, all_fish_times_caught, fish_display_fish]
+	player_save_data = [fish_max_weight, player_money, fish_times_caught, all_fish_times_caught, fish_display_fish, catch_speed_increase, weight_increase, rarity_increase]
 	var file = FileAccess.open(SAVE_FILE, FileAccess.WRITE)
 	file.store_var(player_save_data)
 	file.close()
@@ -102,8 +109,8 @@ func load_data():
 	var file = FileAccess.open(SAVE_FILE, FileAccess.READ)
 	player_save_data = file.get_var()
 	# If the save file is not the correct length, reset it to prevent out of bounds errors
-	if len(player_save_data) < 4:
-		player_save_data = [fish_max_weight, player_money, fish_times_caught, all_fish_times_caught, fish_display_fish]
+	if len(player_save_data) < 7:
+		player_save_data = [fish_max_weight, player_money, fish_times_caught, all_fish_times_caught, fish_display_fish, catch_speed_increase, weight_increase, rarity_increase]
 		save_data()
 	file.close()
 	
@@ -112,3 +119,6 @@ func load_data():
 	fish_times_caught = player_save_data[2]
 	all_fish_times_caught = player_save_data[3]
 	fish_display_fish = player_save_data[4]
+	catch_speed_increase = player_save_data[5]
+	weight_increase = player_save_data[6]
+	rarity_increase = player_save_data[7]

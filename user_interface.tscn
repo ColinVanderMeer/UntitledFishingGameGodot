@@ -44,6 +44,7 @@ scale = Vector2(5, 5)
 texture = ExtResource("2_0jl8t")
 
 [node name="FishGlow" type="Sprite2D" parent="TextBox/FishSprite"]
+modulate = Color(1, 1, 1, 0.498039)
 z_index = -1
 scale = Vector2(0.2, 0.2)
 texture = ExtResource("3_up53h")
