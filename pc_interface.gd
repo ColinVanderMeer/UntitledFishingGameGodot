@@ -4,6 +4,7 @@ var current_selection_h = 0
 var current_selection_v = 0
 
 var current_selection_display = 0
+var current_selection = 0
 
 func _process(_delta):
 	if $FishList.visible && Global.interact:
@@ -26,10 +27,10 @@ func _process(_delta):
 				current_selection_h = 0
 		if Input.is_action_just_pressed("interact"):
 			await Engine.get_main_loop().process_frame
-			var current_selection = current_selection_h + current_selection_v * 4
+			current_selection = current_selection_h + current_selection_v * 4
 			
 			if current_selection == 15:
-				self.visible = false
+				$FishList.visible = false
 				Global.interact = false
 				return
 			
@@ -64,11 +65,11 @@ func _process(_delta):
 			await Engine.get_main_loop().process_frame		
 			match current_selection_display:
 				0:
-					pass
+					Global.fish_display_fish[0] = current_selection
 				1:
-					pass
+					Global.fish_display_fish[1] = current_selection
 				2:
-					pass
+					Global.fish_display_fish[2] = current_selection
 				3:
 					$FishInfoDisplay.visible = false
 					$FishList.visible = true

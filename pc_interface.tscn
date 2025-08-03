@@ -42,6 +42,7 @@ grow_vertical = 2
 script = ExtResource("1_mbypa")
 
 [node name="FishList" type="Panel" parent="."]
+visible = false
 layout_mode = 0
 offset_right = 160.0
 offset_bottom = 128.0

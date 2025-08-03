@@ -94,6 +94,7 @@ collision_layer = 2
 collision_mask = 0
 monitoring = false
 script = ExtResource("6_myf4l")
+frame_num = 1
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Entities/FishDisplay2"]
 shape = SubResource("RectangleShape2D_1ecfl")
@@ -110,6 +111,7 @@ collision_layer = 2
 collision_mask = 0
 monitoring = false
 script = ExtResource("6_myf4l")
+frame_num = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Entities/FishDisplay3"]
 shape = SubResource("RectangleShape2D_1ecfl")
@@ -191,4 +193,3 @@ position = Vector2(98, 107)
 [node name="UserInterface" parent="." instance=ExtResource("12_msgp6")]
 
 [node name="PcInterface" parent="." instance=ExtResource("13_e23gp")]
-visible = false

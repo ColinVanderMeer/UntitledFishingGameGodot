@@ -81,6 +81,8 @@ func catch_fish():
 	if Global.fish_max_weight[fish_caught] < fish_weight:
 		Global.fish_max_weight[fish_caught] = fish_weight
 	Global.player_money += fish_price
+	Global.all_fish_times_caught += 1
+	Global.fish_times_caught[fish_caught] += 1
 	
 	textBoxLabel.text = "You caught a %s\nweighing %.2f kg!\nIt sold for $%d" % [fish_info.name, fish_weight, fish_price]
 	textBox.visible = true
@@ -226,10 +228,21 @@ func execute_interaction():
 					
 			"open_pc":
 				var pcInterface = get_tree().get_nodes_in_group("PcInterface")[0]
+				var fishInterface = pcInterface.get_node("FishList")
 				if !Global.interact:
-					pcInterface.visible = true
+					fishInterface.visible = true
 					Global.interact = true
-
+					
+			"fish_display":
+				if Global.interact:
+					Global.interact = false
+					textBox.visible = false
+				else:
+					var frame_fish = Global.fish_display_fish[current_interaction.frame_num]
+					textBoxLabel.text = "%s\nCaught %d times\nMax weight: %.2f" % [Global.fish_data[frame_fish].name, Global.fish_times_caught[frame_fish], Global.fish_max_weight[frame_fish]]
+					textBox.visible = true
+					Global.interact = true
+					
 			"fish_area":
 				if Global.interact: # If fishing
 					if fish_hooked && !fish_box_up: 
