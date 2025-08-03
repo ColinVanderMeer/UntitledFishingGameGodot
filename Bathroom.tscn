@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=4 uid="uid://ctp8gcbbwt2r"]
+[gd_scene load_steps=10 format=4 uid="uid://ctp8gcbbwt2r"]
 
 [ext_resource type="TileSet" uid="uid://5ec7aqryvhob" path="res://Tileset.tres" id="1_iyxh2"]
 [ext_resource type="PackedScene" uid="uid://cv2fcay36vca2" path="res://player.tscn" id="3_618us"]
@@ -12,6 +12,9 @@ size = Vector2(16, 16)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vtfgw"]
 size = Vector2(20, 4)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hwn3p"]
+size = Vector2(16, 16)
 
 [node name="Node2D" type="Node2D"]
 
@@ -48,6 +51,11 @@ shape = SubResource("RectangleShape2D_vtfgw")
 [node name="Toilet" type="Sprite2D" parent="."]
 position = Vector2(120, 56)
 texture = ExtResource("6_618us")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Toilet"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Toilet/StaticBody2D"]
+shape = SubResource("RectangleShape2D_hwn3p")
 
 [node name="Player" parent="." instance=ExtResource("3_618us")]
 position = Vector2(40, 113)

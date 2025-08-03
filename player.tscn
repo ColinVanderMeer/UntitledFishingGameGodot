@@ -1,10 +1,14 @@
-[gd_scene load_steps=43 format=3 uid="uid://cv2fcay36vca2"]
+[gd_scene load_steps=47 format=3 uid="uid://cv2fcay36vca2"]
 
 [ext_resource type="Texture2D" uid="uid://45r8b3trcqu0" path="res://assets/player/playerIdleA1.png" id="1_ek41f"]
 [ext_resource type="Script" uid="uid://bo0fefl8v6i1k" path="res://player.gd" id="1_khis8"]
+[ext_resource type="Texture2D" uid="uid://bwstic3wdfmts" path="res://assets/player/playerFishA.png" id="2_ibah8"]
 [ext_resource type="Texture2D" uid="uid://dql5wlw72sd0w" path="res://assets/player/playerIdleA2.png" id="2_khis8"]
+[ext_resource type="Texture2D" uid="uid://ihwmtokgla77" path="res://assets/player/playerFishD.png" id="3_3iwfv"]
 [ext_resource type="Texture2D" uid="uid://bb5smkj2kwuh6" path="res://assets/player/playerIdleA3.png" id="3_b88wv"]
 [ext_resource type="Texture2D" uid="uid://b1mb0rc3s252x" path="res://assets/player/playerIdleD1.png" id="4_pgbbb"]
+[ext_resource type="Texture2D" uid="uid://dfs3q8gx1ts4p" path="res://assets/player/playerFishS.png" id="4_qwsg1"]
+[ext_resource type="Texture2D" uid="uid://c3p300nsxqnrv" path="res://assets/player/playerFishW.png" id="5_1xqrm"]
 [ext_resource type="Texture2D" uid="uid://blkdqb8s7i8xo" path="res://assets/player/playerIdleD2.png" id="5_331ug"]
 [ext_resource type="Texture2D" uid="uid://lbg2dr8irv1e" path="res://assets/player/playerIdleD3.png" id="6_ny14h"]
 [ext_resource type="Texture2D" uid="uid://dbfifev14qfl0" path="res://assets/player/playerIdleS1.png" id="7_ibah8"]
@@ -41,6 +45,38 @@
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_ek41f"]
 animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_ibah8")
+}],
+"loop": true,
+"name": &"FishA",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_3iwfv")
+}],
+"loop": true,
+"name": &"FishD",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_qwsg1")
+}],
+"loop": true,
+"name": &"FishS",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_1xqrm")
+}],
+"loop": true,
+"name": &"FishW",
+"speed": 5.0
+}, {
 "frames": [{
 "duration": 1.0,
 "texture": ExtResource("1_ek41f")
@@ -216,7 +252,7 @@ script = ExtResource("1_khis8")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_ek41f")
-animation = &"IdleW"
+animation = &"FishW"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, 7.375)

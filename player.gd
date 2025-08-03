@@ -41,6 +41,7 @@ func _physics_process(_delta):
 			set_animation("Walk")
 			
 	if fishing:
+		set_animation("Fish")
 		if !fish_hooked:
 			fishing_process()
 	
