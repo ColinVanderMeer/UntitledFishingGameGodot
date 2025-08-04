@@ -8,10 +8,10 @@ func _process(_delta):
 		if Input.is_action_just_pressed("ui_up"):
 			current_selection -= 1
 			if current_selection < 0:
-				current_selection = 2
+				current_selection = 3
 		if Input.is_action_just_pressed("ui_down"):
 			current_selection += 1
-			if current_selection > 2:
+			if current_selection > 3:
 				current_selection = 0
 		if Input.is_action_just_pressed("interact"):
 			await Engine.get_main_loop().process_frame
@@ -25,6 +25,8 @@ func _process(_delta):
 					$Menu.visible = false
 					Global.interact = false
 				2:
+					$Credits.visible = !$Credits.visible
+				3:
 					$Menu.visible = false
 					Global.interact = false
 		

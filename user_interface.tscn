@@ -82,12 +82,20 @@ offset_right = 39.0
 offset_bottom = 34.0
 text = "Load"
 
-[node name="Exit" type="Label" parent="Menu"]
+[node name="Credits" type="Label" parent="Menu"]
 layout_mode = 0
 offset_left = 15.0
 offset_top = 35.0
-offset_right = 39.0
+offset_right = 57.0
 offset_bottom = 44.0
+text = "Credits"
+
+[node name="Exit" type="Label" parent="Menu"]
+layout_mode = 0
+offset_left = 15.0
+offset_top = 45.0
+offset_right = 39.0
+offset_bottom = 54.0
 text = "Exit"
 
 [node name="MoneyLabel" type="Label" parent="Menu"]
@@ -110,3 +118,38 @@ text = "9999"
 position = Vector2(7, 15)
 texture = ExtResource("5_up53h")
 centered = false
+
+[node name="Credits" type="Panel" parent="."]
+visible = false
+layout_mode = 0
+offset_left = 2.0
+offset_top = 2.0
+offset_right = 158.0
+offset_bottom = 126.0
+theme = ExtResource("1_juc2q")
+
+[node name="Title" type="Label" parent="Credits"]
+layout_mode = 0
+offset_left = 5.0
+offset_top = 5.0
+offset_right = 151.0
+offset_bottom = 14.0
+text = "Untitled Fishing Game"
+horizontal_alignment = 1
+
+[node name="Title2" type="Label" parent="Credits"]
+layout_mode = 0
+offset_left = 5.0
+offset_top = 15.0
+offset_right = 151.0
+offset_bottom = 119.0
+text = "90% of everything by me
+Sprites from:
+    Me
+    Asset Packs
+    Pokemon Emerald
+
+Special shoutouts
+to Hack Club for being
+awesome"
+vertical_alignment = 1
