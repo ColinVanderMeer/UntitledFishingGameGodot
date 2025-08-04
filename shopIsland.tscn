@@ -63,6 +63,13 @@ position = Vector2(104, 43)
 position = Vector2(0, -19)
 texture = ExtResource("5_2rpcb")
 
+[node name="ShopOverlay" type="Sprite2D" parent="Entities"]
+z_index = 1
+position = Vector2(0, -28)
+texture = ExtResource("5_2rpcb")
+region_enabled = true
+region_rect = Rect2(0, 0, 80, 30)
+
 [node name="Player" parent="." instance=ExtResource("5_8f1rm")]
 position = Vector2(104, 43)
 
