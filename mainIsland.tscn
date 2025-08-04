@@ -56,7 +56,7 @@ collision_mask = 0
 monitoring = false
 script = ExtResource("4_q2yj1")
 interact_type = "text_box"
-interact_value = "Welcome to Fishing! Use Lto interact with objects, K to close text boxes, and I to open the menu."
+interact_value = "Welcome to Fishing! Use Z to interact and to start fishing, and use C to open your menu to save"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Entities/Sign/InteractArea"]
 shape = SubResource("RectangleShape2D_leyo6")
