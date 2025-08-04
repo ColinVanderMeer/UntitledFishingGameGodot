@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=4 uid="uid://dkyi81pt0xq8h"]
+[gd_scene load_steps=24 format=4 uid="uid://dkyi81pt0xq8h"]
 
 [ext_resource type="TileSet" uid="uid://5ec7aqryvhob" path="res://Tileset.tres" id="1_fgaav"]
 [ext_resource type="PackedScene" uid="uid://cv2fcay36vca2" path="res://player.tscn" id="3_gmb2m"]
@@ -11,6 +11,7 @@
 [ext_resource type="Script" uid="uid://bosh1ciewx1gk" path="res://interact_area.gd" id="8_p5a0g"]
 [ext_resource type="Texture2D" uid="uid://d0heyxpnc50l6" path="res://assets/shopCounter.png" id="8_sw5c6"]
 [ext_resource type="Texture2D" uid="uid://co17kja7mubaa" path="res://assets/pc.png" id="10_e23gp"]
+[ext_resource type="Texture2D" uid="uid://h02i232kgl3e" path="res://assets/rug.png" id="11_gldgk"]
 [ext_resource type="PackedScene" uid="uid://tunphkrbul7k" path="res://user_interface.tscn" id="12_msgp6"]
 [ext_resource type="PackedScene" uid="uid://r3o7q6fpmsu6" path="res://pc_interface.tscn" id="13_e23gp"]
 [ext_resource type="PackedScene" uid="uid://60knm8iae4n7" path="res://shop_interface.tscn" id="14_rrolr"]
@@ -187,6 +188,10 @@ texture = ExtResource("10_e23gp")
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="Entities/PC/StaticBody2D"]
 position = Vector2(152, 16)
 shape = SubResource("RectangleShape2D_763b7")
+
+[node name="Rug" type="Sprite2D" parent="Entities"]
+position = Vector2(40, 119)
+texture = ExtResource("11_gldgk")
 
 [node name="Player" parent="." instance=ExtResource("3_gmb2m")]
 position = Vector2(98, 107)
