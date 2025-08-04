@@ -1,0 +1,50 @@
+[gd_scene load_steps=6 format=4 uid="uid://ddbm5gjlkwgtp"]
+
+[ext_resource type="Theme" uid="uid://cqlcjx0e4f7ox" path="res://new_theme.tres" id="1_06t4h"]
+[ext_resource type="TileSet" uid="uid://5ec7aqryvhob" path="res://Tileset.tres" id="1_fu7sn"]
+[ext_resource type="Script" uid="uid://8qysn5cbkcfw" path="res://main_menu.gd" id="1_glbon"]
+[ext_resource type="Texture2D" uid="uid://ihwmtokgla77" path="res://assets/player/playerFishD.png" id="2_jix8l"]
+[ext_resource type="Texture2D" uid="uid://dw53nbpaxlfhq" path="res://assets/Fish/clown.png" id="3_glbon"]
+
+[node name="MainMenu" type="Node2D"]
+script = ExtResource("1_glbon")
+map = "uid://ciob6efre70ff"
+
+[node name="TileMapLayer" type="TileMapLayer" parent="."]
+position = Vector2(-26.78, 0)
+scale = Vector2(3, 3)
+tile_map_data = PackedByteArray("AAAGAAYAAAABAAMAAAAGAAcAAAABAAQAAAAFAAcAAAABAAAAAAAEAAcAAAABAAAAAAADAAcAAAABAAAAAAACAAcAAAABAAAAAAABAAcAAAABAAAAAAAAAAcAAAABAAAAAAAAAAYAAAABAAIAAAAFAAYAAAABAAIAAAAEAAYAAAABAAIAAAADAAYAAAABAAIAAAACAAYAAAABAAIAAAABAAYAAAABAAIAAAD//wYAAAAAAAMAAAD//wcAAAAAAAQAAAABAAAAAAAAAAEAAAAAAAAAAAACAAQAAAD//wAAAAACAAEAAAD//wEAAAACAAEAAAD//wIAAAAAAAQAAAAAAAIAAAABAAAAAAAAAAEAAAACAAMAAAABAAEAAAAAAAEAAAABAAIAAAABAAQAAAABAP//AAABAAMAAAAAAP//AAABAAIAAAD/////AAAAAAMAAAACAP//AAABAAEAAAACAAAAAAABAAEAAAACAAEAAAABAAEAAAACAAIAAAABAAEAAAADAAIAAAABAAEAAAADAAEAAAABAAEAAAADAAAAAAABAAEAAAADAP//AAABAAEAAAA=")
+tile_set = ExtResource("1_fu7sn")
+
+[node name="PlayerFishD" type="Sprite2D" parent="."]
+position = Vector2(39.1, 50.1)
+scale = Vector2(3, 3)
+texture = ExtResource("2_jix8l")
+
+[node name="Clown" type="Sprite2D" parent="."]
+position = Vector2(107, 87)
+rotation = 0.345822
+scale = Vector2(-6, 6)
+texture = ExtResource("3_glbon")
+
+[node name="Label" type="Label" parent="."]
+offset_left = 48.0
+offset_top = 5.0
+offset_right = 111.0
+offset_bottom = 34.0
+scale = Vector2(2, 2)
+theme = ExtResource("1_06t4h")
+text = "Untitled
+Fishing
+Game"
+horizontal_alignment = 1
+
+[node name="Label2" type="Label" parent="."]
+offset_left = 49.0
+offset_top = 107.0
+offset_right = 112.0
+offset_bottom = 136.0
+scale = Vector2(2, 2)
+theme = ExtResource("1_06t4h")
+text = "Press z"
+horizontal_alignment = 1
