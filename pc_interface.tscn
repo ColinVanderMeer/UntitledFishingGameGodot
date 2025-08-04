@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://r3o7q6fpmsu6"]
+[gd_scene load_steps=22 format=3 uid="uid://r3o7q6fpmsu6"]
 
 [ext_resource type="Texture2D" uid="uid://dw53nbpaxlfhq" path="res://assets/Fish/clown.png" id="1_aydsg"]
 [ext_resource type="Script" uid="uid://dhjfih1ahs5sf" path="res://pc_interface.gd" id="1_mbypa"]
@@ -18,6 +18,7 @@
 [ext_resource type="Texture2D" uid="uid://bnlph0w61wsrr" path="res://assets/Fish/at_fish.png" id="15_1op6q"]
 [ext_resource type="Texture2D" uid="uid://dn0ee0jmadqx7" path="res://assets/Fish/magical_frog.png" id="16_ghmfo"]
 [ext_resource type="Texture2D" uid="uid://d07b0qqaeyj8s" path="res://assets/selector.png" id="17_x7j1b"]
+[ext_resource type="Texture2D" uid="uid://xindir7eilum" path="res://assets/leave.png" id="18_61320"]
 [ext_resource type="Theme" uid="uid://cqlcjx0e4f7ox" path="res://new_theme.tres" id="19_abqq5"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_aydsg"]
@@ -149,7 +150,7 @@ fish_type = 14
 
 [node name="BackButton" type="TextureRect" parent="FishList/GridContainer"]
 layout_mode = 2
-texture = ExtResource("17_x7j1b")
+texture = ExtResource("18_61320")
 
 [node name="Selector" type="Panel" parent="FishList"]
 layout_mode = 0
