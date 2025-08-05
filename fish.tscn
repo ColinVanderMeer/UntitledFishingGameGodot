@@ -1,0 +1,22 @@
+[gd_scene load_steps=3 format=3 uid="uid://sodriwwjrjqs"]
+
+[ext_resource type="PackedScene" uid="uid://d0rdko3euvkh7" path="res://fish.glb" id="1_xu20i"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_hgn23"]
+shading_mode = 0
+specular_mode = 2
+
+[node name="fish" instance=ExtResource("1_xu20i")]
+
+[node name="Sphere" parent="." index="0"]
+material_override = SubResource("StandardMaterial3D_hgn23")
+
+[node name="Sphere_001" parent="." index="1"]
+transform = Transform3D(0.395, 0, 0, 0, 0.395, 0, 0, 0, 0.916, -1.6346, 0.214325, -0.0317523)
+material_override = SubResource("StandardMaterial3D_hgn23")
+
+[node name="Cone" parent="." index="2"]
+material_override = SubResource("StandardMaterial3D_hgn23")
+
+[node name="Cone_001" parent="." index="3"]
+material_override = SubResource("StandardMaterial3D_hgn23")
