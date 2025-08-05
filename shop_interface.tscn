@@ -15,6 +15,7 @@ script = ExtResource("1_yhqus")
 
 [node name="Shop" type="Panel" parent="."]
 visible = false
+layout_mode = 0
 offset_left = 2.0
 offset_top = 2.0
 offset_right = 118.0
@@ -66,6 +67,7 @@ text = "Buy Bait Upgrade
     Have: "
 
 [node name="BaitCost" type="Label" parent="Shop/BaitLabel"]
+layout_mode = 0
 offset_left = 66.0
 offset_top = 10.0
 offset_right = 106.0
@@ -73,6 +75,7 @@ offset_bottom = 19.0
 text = "500"
 
 [node name="BaitHave" type="Label" parent="Shop/BaitLabel"]
+layout_mode = 0
 offset_left = 60.0
 offset_top = 20.0
 offset_right = 100.0
@@ -90,6 +93,7 @@ text = "Buy Luck Upgrade
     Have: "
 
 [node name="LuckCost" type="Label" parent="Shop/LuckLabel"]
+layout_mode = 0
 offset_left = 66.0
 offset_top = 10.0
 offset_right = 106.0
@@ -97,6 +101,7 @@ offset_bottom = 19.0
 text = "500"
 
 [node name="LuckHave" type="Label" parent="Shop/LuckLabel"]
+layout_mode = 0
 offset_left = 60.0
 offset_top = 20.0
 offset_right = 100.0

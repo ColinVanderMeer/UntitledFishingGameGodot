@@ -183,6 +183,7 @@ text = "This fish is known all across the ocean for its incredible singing voice
 autowrap_mode = 1
 
 [node name="MaxWeightLabel" type="Label" parent="FishInfoDisplay"]
+layout_mode = 0
 offset_left = 5.0
 offset_top = 49.0
 offset_right = 47.0
@@ -198,6 +199,7 @@ offset_bottom = 68.0
 text = "12.54 Kg"
 
 [node name="DisplayFrameLabel" type="Label" parent="FishInfoDisplay"]
+layout_mode = 0
 offset_left = 5.0
 offset_top = 76.0
 offset_right = 47.0
@@ -205,6 +207,7 @@ offset_bottom = 99.0
 text = "Display"
 
 [node name="DisplayFrame2" type="Label" parent="FishInfoDisplay"]
+layout_mode = 0
 offset_left = 15.0
 offset_top = 86.0
 offset_right = 57.0
@@ -212,6 +215,7 @@ offset_bottom = 109.0
 text = "Frame 1"
 
 [node name="DisplayFrame3" type="Label" parent="FishInfoDisplay"]
+layout_mode = 0
 offset_left = 15.0
 offset_top = 96.0
 offset_right = 57.0
@@ -219,6 +223,7 @@ offset_bottom = 119.0
 text = "Frame 2"
 
 [node name="DisplayFrame4" type="Label" parent="FishInfoDisplay"]
+layout_mode = 0
 offset_left = 15.0
 offset_top = 106.0
 offset_right = 57.0
@@ -226,6 +231,7 @@ offset_bottom = 129.0
 text = "Frame 3"
 
 [node name="Exit" type="Label" parent="FishInfoDisplay"]
+layout_mode = 0
 offset_left = 15.0
 offset_top = 116.0
 offset_right = 57.0
