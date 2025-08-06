@@ -28,7 +28,7 @@ var fish_data = {
 	fish_list.shark:        {"name": "Shark", "weight": Vector2(10.0, 50.0), "texture": "res://assets/Fish/shark.png", "description": "The apex predator of the sea\nBut this one kinda looks cute and cuddly"},
 
 	fish_list.orpheus:      {"name": "Orpheus", "weight": Vector2(2.0, 6.0), "texture": "res://assets/Fish/orpheus.png", "description": "This curious dino is never found far from a computer"},
-	fish_list.at_fish:      {"name": "@Fish", "weight": Vector2(0.1, 1.0), "texture": "res://assets/Fish/at_fish.png", "descripton": "The real ones are in fish-channel"},
+	fish_list.at_fish:      {"name": "@Fish", "weight": Vector2(0.1, 1.0), "texture": "res://assets/Fish/at_fish.png", "description": "The real ones are in fish-channel"},
 	fish_list.magical_frog: {"name": "Magical Frog", "weight": Vector2(0.2, 0.8), "texture": "res://assets/Fish/magical_frog.png", "description": "This magical frog is stated to love games and loves to see more of them get made"}
 }
 
