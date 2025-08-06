@@ -214,9 +214,7 @@ func execute_interaction():
 	await Engine.get_main_loop().process_frame
 	if all_interactions:
 		var current_interaction = all_interactions[0]
-		print(Global.fish_max_weight)
 		match current_interaction.interact_type:
-			"print_text": print(current_interaction.interact_value)
 
 			"text_box":
 				if Global.interact:
