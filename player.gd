@@ -265,3 +265,4 @@ func execute_interaction():
 				else: # Start fishing
 					Global.interact = true
 					fishing = true
+					$FishingComponents/FishSFX.play(0)

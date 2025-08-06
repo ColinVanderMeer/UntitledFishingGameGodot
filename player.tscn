@@ -1,4 +1,4 @@
-[gd_scene load_steps=47 format=3 uid="uid://cv2fcay36vca2"]
+[gd_scene load_steps=48 format=3 uid="uid://cv2fcay36vca2"]
 
 [ext_resource type="Texture2D" uid="uid://45r8b3trcqu0" path="res://assets/player/playerIdleA1.png" id="1_ek41f"]
 [ext_resource type="Script" uid="uid://bo0fefl8v6i1k" path="res://player.gd" id="1_khis8"]
@@ -42,6 +42,7 @@
 [ext_resource type="Texture2D" uid="uid://cdrn6700as7nd" path="res://assets/player/playerWalkW5.png" id="35_va2xi"]
 [ext_resource type="Texture2D" uid="uid://c0xifnrya6fqj" path="res://assets/player/playerWalkW6.png" id="36_fkf2u"]
 [ext_resource type="Texture2D" uid="uid://dp3v3kbqpbp3y" path="res://assets/alert.png" id="38_b88wv"]
+[ext_resource type="AudioStream" uid="uid://chj7vs3414jxv" path="res://fishStart.wav" id="43_3iwfv"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_ek41f"]
 animations = [{
@@ -289,6 +290,10 @@ texture = ExtResource("38_b88wv")
 
 [node name="FishTimer" type="Timer" parent="FishingComponents"]
 one_shot = true
+
+[node name="FishSFX" type="AudioStreamPlayer2D" parent="FishingComponents"]
+position = Vector2(16, 28)
+stream = ExtResource("43_3iwfv")
 
 [connection signal="area_entered" from="InteractionComponents/InteractionArea" to="." method="_on_interaction_area_area_entered"]
 [connection signal="area_exited" from="InteractionComponents/InteractionArea" to="." method="_on_interaction_area_area_exited"]
