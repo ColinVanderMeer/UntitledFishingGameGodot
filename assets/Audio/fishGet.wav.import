@@ -2,13 +2,13 @@
 
 importer="wav"
 type="AudioStreamWAV"
-uid="uid://chj7vs3414jxv"
-path="res://.godot/imported/fishStart.wav-e95ccbb0ebae2e17f29536c514161c15.sample"
+uid="uid://bmvam6rq454db"
+path="res://.godot/imported/fishGet.wav-1d467fed0dd12d4f6fccb89ae255b0f0.sample"
 
 [deps]
 
-source_file="res://fishStart.wav"
-dest_files=["res://.godot/imported/fishStart.wav-e95ccbb0ebae2e17f29536c514161c15.sample"]
+source_file="res://assets/Audio/fishGet.wav"
+dest_files=["res://.godot/imported/fishGet.wav-1d467fed0dd12d4f6fccb89ae255b0f0.sample"]
 
 [params]
 

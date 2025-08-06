@@ -9,6 +9,7 @@ const SPEED = 5.0
 
 @onready var fishAlert = get_tree().get_nodes_in_group("fishAlert")[0]
 @onready var fishSpin = get_tree().get_nodes_in_group("fishSpin")[0]
+@onready var fishMusic = fishSpin.get_node("Funky")
 
 
 var fishing = false
@@ -78,3 +79,4 @@ func catch_fish():
 	$Neck/Camera3D/Rod.visible = false
 	fishAlert.visible = false
 	fishSpin.visible = true
+	fishMusic.play(0)

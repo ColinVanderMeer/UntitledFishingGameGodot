@@ -1,4 +1,4 @@
-[gd_scene load_steps=32 format=3 uid="uid://xgooqnul85k8"]
+[gd_scene load_steps=33 format=3 uid="uid://xgooqnul85k8"]
 
 [ext_resource type="Material" uid="uid://tvtgwrdwe6my" path="res://black.tres" id="1_cq4x0"]
 [ext_resource type="Script" uid="uid://cue1vfy055j0l" path="res://character_body_3d.gd" id="1_mjf3p"]
@@ -7,6 +7,7 @@
 [ext_resource type="Script" uid="uid://c7vc8irb1vg7w" path="res://fish_spin.gd" id="5_if53c"]
 [ext_resource type="PackedScene" uid="uid://sodriwwjrjqs" path="res://fish.tscn" id="5_vmifw"]
 [ext_resource type="Script" uid="uid://dtdyey17u8e3u" path="res://easter_egg_exit.gd" id="7_55nsc"]
+[ext_resource type="AudioStream" uid="uid://xjiabs8t2w3j" path="res://assets/Audio/funky.ogg" id="7_ik8xb"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_wxqwm"]
 sky_horizon_color = Color(0.662243, 0.671743, 0.686743, 1)
@@ -261,6 +262,9 @@ script = ExtResource("5_if53c")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.11538, 0)
 text = "3d fish"
 font_size = 320
+
+[node name="Funky" type="AudioStreamPlayer3D" parent="FishSpin"]
+stream = ExtResource("7_ik8xb")
 
 [node name="EasterEggExit" type="Area3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 9.82519)

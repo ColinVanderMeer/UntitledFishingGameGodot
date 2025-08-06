@@ -98,6 +98,7 @@ func catch_fish():
 	fishTimer.stop()
 	
 	fish_box_up = true
+	$FishingComponents/FishGet.play(0)
 	
 
 	
