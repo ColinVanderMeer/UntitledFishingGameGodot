@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://r3o7q6fpmsu6"]
+[gd_scene load_steps=23 format=3 uid="uid://r3o7q6fpmsu6"]
 
 [ext_resource type="Texture2D" uid="uid://dw53nbpaxlfhq" path="res://assets/Fish/clown.png" id="1_aydsg"]
 [ext_resource type="Script" uid="uid://dhjfih1ahs5sf" path="res://pc_interface.gd" id="1_mbypa"]
@@ -21,13 +21,25 @@
 [ext_resource type="Texture2D" uid="uid://xindir7eilum" path="res://assets/leave.png" id="18_61320"]
 [ext_resource type="Theme" uid="uid://cqlcjx0e4f7ox" path="res://new_theme.tres" id="19_abqq5"]
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_61320"]
+bg_color = Color(0.231373, 0.0666667, 0.00392157, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.866667, 0.360784, 0.027451, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_aydsg"]
 bg_color = Color(0.6, 0.6, 0.6, 0)
 border_width_left = 1
 border_width_top = 1
 border_width_right = 1
 border_width_bottom = 1
-border_color = Color(1, 1, 0, 1)
+border_color = Color(0.964706, 0.729412, 0.223529, 1)
 corner_radius_top_left = 5
 corner_radius_top_right = 5
 corner_radius_bottom_right = 5
@@ -47,6 +59,7 @@ visible = false
 layout_mode = 0
 offset_right = 160.0
 offset_bottom = 128.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_61320")
 
 [node name="GridContainer" type="GridContainer" parent="FishList"]
 layout_mode = 0
@@ -166,6 +179,7 @@ layout_mode = 0
 offset_right = 160.0
 offset_bottom = 128.0
 theme = ExtResource("19_abqq5")
+theme_override_styles/panel = SubResource("StyleBoxFlat_61320")
 
 [node name="Fish" type="Sprite2D" parent="FishInfoDisplay"]
 position = Vector2(15, 10)
@@ -179,7 +193,7 @@ offset_left = 62.0
 offset_top = 3.0
 offset_right = 158.0
 offset_bottom = 122.0
-text = "This fish is known all across the ocean for its incredible singing voice and hit line of rhythm games based off of its songs"
+text = "This placeholder text better not show up in proper gameplay or I will be very very sad"
 autowrap_mode = 1
 
 [node name="MaxWeightLabel" type="Label" parent="FishInfoDisplay"]
