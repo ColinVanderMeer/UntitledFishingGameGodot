@@ -25,7 +25,7 @@ func _unhandled_input(event: InputEvent) -> void:
 	elif event.is_action_pressed("ui_cancel"):
 		Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 	if Input.get_mouse_mode() == Input.MOUSE_MODE_CAPTURED:
-		if event is InputEventMouseMotion:
+		if event is InputEventMouseMotion && !fishing:
 			neck.rotate_y(-event.relative.x * MOUSE_LOOK_SENS)
 			camera.rotate_x(-event.relative.y * MOUSE_LOOK_SENS)
 			camera.rotation.x = clamp(camera.rotation.x, deg_to_rad(-60), deg_to_rad(60))
@@ -35,7 +35,7 @@ func _physics_process(delta: float) -> void:
 	var look_x = Input.get_action_strength("look_right") - Input.get_action_strength("look_left")
 	var look_y = Input.get_action_strength("look_down") - Input.get_action_strength("look_up")
 
-	if abs(look_x) > 0.01 or abs(look_y) > 0.01:
+	if abs(look_x) > 0.01 or abs(look_y) > 0.01 && !fishing:
 		neck.rotate_y(-look_x * CONTROLLER_LOOK_SENS * delta)
 		camera.rotate_x(-look_y * CONTROLLER_LOOK_SENS * delta)
 		camera.rotation.x = clamp(camera.rotation.x, deg_to_rad(-60), deg_to_rad(60))
@@ -53,10 +53,10 @@ func _physics_process(delta: float) -> void:
 	else:
 		velocity.x = move_toward(velocity.x, 0, SPEED)
 		velocity.z = move_toward(velocity.z, 0, SPEED)
-		
+
 	if raycaster.is_colliding():
 		var collider = raycaster.get_collider()
-		
+
 		if collider.name == "Water":
 			if Input.is_action_just_pressed("interact"):
 				if Global.interact: # If fishing
@@ -67,11 +67,12 @@ func _physics_process(delta: float) -> void:
 						fishing = false
 						$Neck/Camera3D/Rod.visible = false
 				else: # Start fishing
-					Global.interact = true
-					fishing = true
-					$Neck/Camera3D/Rod.visible = true
-					
-					
+					if fishSpin.visible != true:
+						Global.interact = true
+						fishing = true
+						$Neck/Camera3D/Rod.visible = true
+
+
 	if fishing:
 		if !fish_hooked:
 			fishing_process()
@@ -86,6 +87,7 @@ func fishing_process():
 
 func catch_fish():
 	Global.interact = false
+	fishing = false
 	$Neck/Camera3D/Rod.visible = false
 	fishAlert.visible = false
 	fishSpin.visible = true
