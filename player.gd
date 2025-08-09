@@ -63,6 +63,12 @@ func fishing_process():
 	if rng.randi_range(0,120 - Global.catch_speed_increase * 5) == 0:
 		fish_hooked = true
 		fishAlert.visible = true
+		if self.global_position.y < 17:
+			fishAlert.position.y = 50
+			fishAlert.rotation_degrees = 180
+		else:
+			fishAlert.position.y = 10
+			fishAlert.rotation_degrees = 0
 		fishTimer.start()
 
 func fish_missed():
