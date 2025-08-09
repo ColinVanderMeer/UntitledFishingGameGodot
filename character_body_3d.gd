@@ -2,6 +2,8 @@ extends CharacterBody3D
 
 
 const SPEED = 5.0
+const MOUSE_LOOK_SENS = 0.01
+const CONTROLLER_LOOK_SENS = 2.5
 
 @onready var neck := $Neck
 @onready var camera := $Neck/Camera3D
@@ -24,11 +26,19 @@ func _unhandled_input(event: InputEvent) -> void:
 		Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 	if Input.get_mouse_mode() == Input.MOUSE_MODE_CAPTURED:
 		if event is InputEventMouseMotion:
-			neck.rotate_y(-event.relative.x * 0.01)
-			camera.rotate_x(-event.relative.y * 0.01)
+			neck.rotate_y(-event.relative.x * MOUSE_LOOK_SENS)
+			camera.rotate_x(-event.relative.y * MOUSE_LOOK_SENS)
 			camera.rotation.x = clamp(camera.rotation.x, deg_to_rad(-60), deg_to_rad(60))
 
 func _physics_process(delta: float) -> void:
+	# Controller right stick look
+	var look_x = Input.get_action_strength("look_right") - Input.get_action_strength("look_left")
+	var look_y = Input.get_action_strength("look_down") - Input.get_action_strength("look_up")
+
+	if abs(look_x) > 0.01 or abs(look_y) > 0.01:
+		neck.rotate_y(-look_x * CONTROLLER_LOOK_SENS * delta)
+		camera.rotate_x(-look_y * CONTROLLER_LOOK_SENS * delta)
+		camera.rotation.x = clamp(camera.rotation.x, deg_to_rad(-60), deg_to_rad(60))
 	# Add the gravity.
 	if not is_on_floor():
 		velocity += get_gravity() * delta
