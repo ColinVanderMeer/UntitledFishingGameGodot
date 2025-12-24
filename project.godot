@@ -10,7 +10,7 @@ config_version=5
 
 [application]
 
-config/name="Untitled Fishing Game"
+config/name="Untitled Fishing Game VR Port"
 run/main_scene="uid://ddbm5gjlkwgtp"
 config/features=PackedStringArray("4.4", "GL Compatibility")
 config/icon="res://icon.svg"
@@ -114,5 +114,10 @@ look_down={
 [rendering]
 
 textures/canvas_textures/default_texture_filter=0
-renderer/rendering_method="gl_compatibility"
-renderer/rendering_method.mobile="gl_compatibility"
+renderer/rendering_method="mobile"
+
+[xr]
+
+openxr/enabled=true
+openxr/binding_modifiers/dpad_binding=true
+shaders/enabled=true

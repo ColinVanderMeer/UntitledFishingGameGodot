@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=3 uid="uid://cn75pm6w664s6"]
+
+[ext_resource type="PackedScene" uid="uid://bj170ic7qhwh6" path="res://assets/Models/Sword Wall Mount.glb" id="1_dl60d"]
+
+[node name="Root Scene" instance=ExtResource("1_dl60d")]
+
+[node name="Sword" parent="RootNode" index="1"]
+mesh = null
+
+[node name="Sword_big" parent="RootNode" index="2"]
+mesh = null

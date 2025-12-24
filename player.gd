@@ -17,6 +17,8 @@ var sprite_direction = "S": get = _get_sprite_direction
 @onready var textBoxLabel = userInterface.get_node("TextBox/TextBoxLabel")
 @onready var textBoxFishSprite = userInterface.get_node("TextBox/FishSprite")
 
+@onready var manager = get_node("../../GameManager")
+
 
 var rng = RandomNumberGenerator.new()
 
@@ -212,7 +214,7 @@ func scene_change(area):
 		4:
 			Global.player_spawn_position = area.custom_coordinates
 
-	call_deferred("_deferred_scene_change", area.map)
+	manager.load_level(area.map)
 
 func _deferred_scene_change(map_path):
 	get_tree().change_scene_to_file(map_path)
