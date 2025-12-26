@@ -5,6 +5,9 @@ const SPEED = 70
 var input_direction: get = _get_input_direction 
 var sprite_direction = "S": get = _get_sprite_direction
 
+@onready var xr_nodes = get_tree().get_nodes_in_group("XrNodes")[0]
+@onready var left_controller: XRController3D = xr_nodes.get_node("LeftHand")
+
 @onready var sprite = $AnimatedSprite2D
 
 @onready var all_interactions = []
@@ -169,26 +172,33 @@ func set_animation(animation):
 
 
 func _get_input_direction():
-	var x = -int(Input.is_action_pressed("ui_left")) + int(Input.is_action_pressed("ui_right"))
-	var y = -int(Input.is_action_pressed("ui_up")) + int(Input.is_action_pressed("ui_down"))
-	input_direction = Vector2(x,y).normalized()
+	var joy_vector = left_controller.get_vector2("primary")
+	
+	if joy_vector.length() < 0.1: # Deadzone
+		input_direction = Vector2.ZERO 
+	else:
+		input_direction = Vector2(joy_vector.x, -joy_vector.y)
+		
 	return input_direction
 
 
 func _get_sprite_direction():
-	match input_direction:
-		Vector2.LEFT:
-			sprite_direction = "A"
-			interactArea.rotation_degrees = 90
-		Vector2.RIGHT:
+	if abs(input_direction.x) > abs(input_direction.y):
+		if input_direction.x > 0:
 			sprite_direction = "D"
 			interactArea.rotation_degrees = 270
-		Vector2.UP:
-			sprite_direction = "W"
-			interactArea.rotation_degrees = 180
-		Vector2.DOWN:
+		else:
+			sprite_direction = "A"
+			interactArea.rotation_degrees = 90
+	else:
+		if input_direction.y > 0:
 			sprite_direction = "S"
 			interactArea.rotation_degrees = 0
+		else:
+			sprite_direction = "W"
+			interactArea.rotation_degrees = 180
+
+	
 	return sprite_direction
 
 

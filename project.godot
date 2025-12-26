@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="Untitled Fishing Game VR Port"
-run/main_scene="uid://ddbm5gjlkwgtp"
+run/main_scene="uid://bsno1kyxkia8v"
 config/features=PackedStringArray("4.4", "GL Compatibility")
 config/icon="res://icon.svg"
 
@@ -36,6 +36,7 @@ enabled=PackedStringArray("res://addons/godot_super-wakatime/plugin.cfg")
 UserInterface=""
 PcInterface=""
 ShopInterface=""
+XrNodes=""
 
 [input]
 

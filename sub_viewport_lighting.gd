@@ -3,7 +3,7 @@ extends SubViewport
 @export var tv_light: Light3D  # Drag your Light3D here in the Inspector
 @export var lerp_speed: float = 5.0 # How fast the light color changes
 
-func _process(delta):
+func _process(_delta):
 	# 1. Get the texture from the viewport
 	var tex = get_texture()
 	
