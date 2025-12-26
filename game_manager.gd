@@ -10,7 +10,9 @@ func load_level(scene_path: String):
 
 func _deferred_scene_change(scene_path: String):
 	if current_level_node != null:
-		current_level_node.queue_free()
+		if current_level_node.has_node("Player"):
+			current_level_node.get_node("Player").set_physics_process(false)
+		current_level_node.free()
 		current_level_node = null
 	
 	var new_scene_resource = load(scene_path)
