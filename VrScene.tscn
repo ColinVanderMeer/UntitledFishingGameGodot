@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://bsno1kyxkia8v"]
+[gd_scene load_steps=23 format=3 uid="uid://bsno1kyxkia8v"]
 
 [ext_resource type="Script" uid="uid://do2cnysq5ksnn" path="res://vr_scene.gd" id="1_866pd"]
 [ext_resource type="PackedScene" uid="uid://dkha6n7852cmt" path="res://assets/Models/Floor.glb" id="3_eh2jo"]
@@ -15,11 +15,17 @@
 [ext_resource type="PackedScene" uid="uid://yj81sds7cxam" path="res://assets/Models/Light Ceiling.glb" id="11_uxhbu"]
 [ext_resource type="Script" uid="uid://cxvtp3ara1ioh" path="res://game_manager.gd" id="13_16lmr"]
 
+[sub_resource type="SphereMesh" id="SphereMesh_16lmr"]
+radius = 0.1
+height = 0.2
+
 [sub_resource type="Environment" id="Environment_866pd"]
 background_mode = 1
 background_color = Color(0.0990838, 0.0895055, 0.0415258, 1)
 glow_enabled = true
-glow_bloom = 0.1
+glow_strength = 0.8
+glow_bloom = 0.2
+glow_blend_mode = 1
 fog_density = 0.015
 
 [sub_resource type="BoxMesh" id="BoxMesh_mtgul"]
@@ -47,17 +53,24 @@ emission_texture = SubResource("ViewportTexture_udo5x")
 script = ExtResource("1_866pd")
 
 [node name="XROrigin3D" type="XROrigin3D" parent="."]
+current = true
 
 [node name="XRCamera3D" type="XRCamera3D" parent="XROrigin3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.8, 0)
 
-[node name="LeftHand" type="XRController3D" parent="XROrigin3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5, 1, -0.5)
+[node name="XRController3D" type="XRController3D" parent="XROrigin3D"]
 tracker = &"left_hand"
 
-[node name="RightHand" type="XRController3D" parent="XROrigin3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 1, -0.5)
+[node name="MeshInstance3D" type="MeshInstance3D" parent="XROrigin3D/XRController3D"]
+mesh = SubResource("SphereMesh_16lmr")
+skeleton = NodePath("../../XRController3D")
+
+[node name="XRController3D2" type="XRController3D" parent="XROrigin3D"]
 tracker = &"right_hand"
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="XROrigin3D/XRController3D2"]
+mesh = SubResource("SphereMesh_16lmr")
+skeleton = NodePath("../../XRController3D")
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_866pd")
@@ -204,7 +217,7 @@ script = ExtResource("13_16lmr")
 
 [node name="SpotLight3D" type="SpotLight3D" parent="TVScreen"]
 transform = Transform3D(1.11111, -1.05879e-21, -3.03821e-08, -4.85683e-08, -7.10543e-15, -1.7762, 4.23516e-22, 1.38889, -2.84217e-14, 0, 0.0753365, 0.424397)
-light_color = Color(0, 0.483333, 1, 1)
+light_color = Color(0.0285, 0.827133, 0.95, 1)
 light_energy = 0.9
 spot_angle = 89.0
 spot_angle_attenuation = 2.54912

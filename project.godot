@@ -119,5 +119,5 @@ renderer/rendering_method="mobile"
 [xr]
 
 openxr/enabled=true
-openxr/binding_modifiers/dpad_binding=true
+openxr/default_action_map="uid://ctmh4k1oxmgem"
 shaders/enabled=true
