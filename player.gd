@@ -183,6 +183,9 @@ func _get_input_direction():
 
 
 func _get_sprite_direction():
+	if input_direction == Vector2.ZERO or Global.interact:
+		return sprite_direction
+	
 	if abs(input_direction.x) > abs(input_direction.y):
 		if input_direction.x > 0:
 			sprite_direction = "D"
