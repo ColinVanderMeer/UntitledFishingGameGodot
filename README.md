@@ -1,6 +1,6 @@
 # Untitled Fishing Game VR
 
-This is a port of Untitled Fishing Game into a custom "theater" VR environment. Tested on a Quest 2 with Windows and Virtual Desktop / SteamVR. Compiled Windows build available here
+This is a port of Untitled Fishing Game into a custom "theater" VR environment. Tested on a Quest 2 with Windows and Virtual Desktop / SteamVR. Compiled Windows build available [here](https://colinvandermeer.github.io/projects/UntitledFishingGameVR.zip)
 
 ## Controls:
 - Left Joystick: Move
