@@ -22,10 +22,10 @@ height = 0.2
 
 [sub_resource type="Environment" id="Environment_866pd"]
 background_mode = 1
-background_color = Color(0.0990838, 0.0895055, 0.0415258, 1)
+background_color = Color(0.03, 0.01776, 0.0096, 1)
 glow_enabled = true
 glow_strength = 0.8
-glow_bloom = 0.2
+glow_bloom = 0.4
 glow_blend_mode = 1
 fog_density = 0.015
 
