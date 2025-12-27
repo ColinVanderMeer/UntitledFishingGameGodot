@@ -243,5 +243,6 @@ omni_range = 0.101131
 
 [connection signal="button_pressed" from="XROrigin3D/LeftHand" to="XROrigin3D/LeftHand" method="_on_button_pressed"]
 [connection signal="button_released" from="XROrigin3D/LeftHand" to="XROrigin3D/LeftHand" method="_on_button_released"]
+[connection signal="input_vector2_changed" from="XROrigin3D/LeftHand" to="XROrigin3D/LeftHand" method="_on_input_vector_2_changed"]
 [connection signal="button_pressed" from="XROrigin3D/RightHand" to="XROrigin3D/RightHand" method="_on_button_pressed"]
 [connection signal="button_released" from="XROrigin3D/RightHand" to="XROrigin3D/RightHand" method="_on_button_released"]
